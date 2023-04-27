@@ -1,4 +1,4 @@
-<div class="horizontal-menu">
+<div class="">
     <nav class="navbar top-navbar">
         <div class="container nav-container">
             <div class="logo">
@@ -8,7 +8,8 @@
                 </a>
             </div>
             <div class="user">
-                Bonjour <strong>{{ username }}</strong>
+                <fa-icon  class="user-icon" [icon]="faUser"></fa-icon>
+                <strong>{{ username }}</strong>
             </div>
         </div>
     </nav>
@@ -29,7 +30,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">
+                    <a routerLink="/annonce" class="nav-link">
                         <fa-icon  class="menu-icon" [icon]="faScroll"></fa-icon>
                         <span class="menu-title">Annonces & avis</span>   
                     </a>
