@@ -5,7 +5,14 @@
     height: 3.5rem;
 }
 .user{
-    color: #fff;
+    display: flex;
+    gap: 20px;
+    align-items:baseline;
+    color: #fff ;
+}
+
+.user .user-icon{
+    font-size: x-large;
 }
 
 .bottom-navbar{
@@ -52,7 +59,7 @@
     position: absolute;
     top: 116px;
     z-index: 999;
-    background: #ffffff;
+    background: #fff;
     border-radius: 4px;
     box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
 }

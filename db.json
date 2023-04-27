@@ -1,0 +1,57 @@
+{
+    "Annonces": [
+      {
+        "Title": "Test 1",
+        "DatePublication": "20/04/2023",
+        "Niveaux": "CP,CI1",
+        "Filliere": "GI, GIL",
+        "Description": "test Description 1"
+      },
+      {
+        "Title": "Test 2",
+        "DatePublication": "20/04/2023",
+        "Niveaux": "CP,CI1",
+        "Filliere": "GI, GIL",
+        "Description": "test Description 1"
+      },
+      {
+        "Title": "Test 2",
+        "DatePublication": "20/04/2023",
+        "Niveaux": "CP,CI1",
+        "Filliere": "GI, GIL",
+        "Description": "test Description 1"
+      }
+    ],
+    "Demandes": [
+      {
+        "id": 1,
+        "Date": "21/04/2022",
+        "TypeDemande": "Certificat de scolarité",
+        "Etat": "En cours de traitement"
+      },
+      {
+        "id": 2,
+        "Date": "21/04/2022",
+        "TypeDemande": "Attestation de Réussite",
+        "Etat": "Validée"
+      },
+      {
+        "Date": "2022/2023",
+        "TypeDemande": "Attestation d'inscription",
+        "Etat": "Nouvelle",
+        "id": 3
+      },
+      {
+        "Date": "2022/2023",
+        "TypeDemande": "Relevé des notes",
+        "Etat": "Nouvelle",
+        "id": 4
+      },
+      {
+        "Date": "2022/2023",
+        "TypeDemande": "Attestation de Classement",
+        "Etat": "Nouvelle",
+        "id": 5
+      }
+    ]
+  }
