@@ -1,0 +1,35 @@
+.top-navbar{
+    font-weight: 400;
+    background: #405189;
+    border-bottom: 1px solid #f3f3f3;
+    height: 3.5rem;
+}
+.user{
+    color: #fff;
+}
+
+.bottom-navbar{
+    background: #CFD3D3;
+
+}
+.nav-container{
+    max-width: 70%;
+}
+
+.page-navigation{
+    justify-content: space-around;
+}
+
+.nav-link{
+    color: #686868;
+    padding: 22px 10px;
+    line-height: 1;
+    font-weight: 400;
+    display: flex;
+    gap: 10px;
+}
+
+menu-title{
+    font-size: 0.875rem;
+    font-weight: 300;
+}
