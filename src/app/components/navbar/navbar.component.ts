@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faHouse, faUserGroup, faScroll, faNoteSticky } from '@fortawesome/free-solid-svg-icons';
+import { faHouse, faUserGroup, faScroll, faNoteSticky , faCaretDown} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navbar',
@@ -13,5 +13,19 @@ export class NavbarComponent {
   faUserGroup = faUserGroup;
   faScroll = faScroll;
   faNoteSticky = faNoteSticky;
+  faCaretDown = faCaretDown;
+
+  dropdown: HTMLLIElement = document.querySelector("#dropdown") as HTMLLIElement;
+  menu: HTMLDivElement = document.querySelector("#menu") as HTMLDivElement;
+ 
+  
+  classToggled = true;
+
+  onMouseEnter(){
+    this.classToggled = !this.classToggled;  
+  }
+  onMouseOut(){
+    this.classToggled = !this.classToggled; 
+  }
 
 }

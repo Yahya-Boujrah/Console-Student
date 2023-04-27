@@ -34,11 +34,23 @@
                         <span class="menu-title">Annonces & avis</span>   
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link">
+                <li class="nav-item" id="dropdown"  (mouseenter)="onMouseEnter()"
+                        (mouseleave)="onMouseOut()">
+                    <a href="" class="nav-link" >
                         <fa-icon  class="menu-icon" [icon]="faNoteSticky"></fa-icon>
-                        <span class="menu-title">Autres Services</span>   
+                        <span class="menu-title">Autres Services</span>
+                        <fa-icon  class="menu-arrow" [icon]="faCaretDown"></fa-icon>
                     </a>
+                    <div class="submenu " [class.toggled]="classToggled" id="menu">
+                        <ul class="submenu-item">
+                            <li class="nav-item"><a href="" class="nav-link">Services divers</a>
+                            </li>
+                            <li class="nav-item"><a href="" class="nav-link">Conventions de stage</a>
+                            </li>
+                            <li class="nav-item"><a href="" class="nav-link">Demandes de services</a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
             </ul>
         </div>
