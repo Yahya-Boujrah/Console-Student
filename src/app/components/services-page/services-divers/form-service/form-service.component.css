@@ -1,0 +1,33 @@
+.form-service{
+    padding:20px 0;
+    margin-left: 2.7em;
+
+}
+.section-title{
+   
+    padding: 10px 0;
+    color: #2379DB;;
+    font-size: 18pt;
+    border-bottom: solid 1px rgba(0,0,0,0.1);
+}
+.form-button{
+    color: #FFF;
+    margin-top: 10px;
+    border: solid 1px #3da5f4;
+    outline: none;
+    border-radius: 6px;
+    background-color: #3da5f4;;
+    cursor: pointer;
+    padding: 10px;
+}
+
+label{
+    margin-top: 20px;
+    font-size: 12pt;
+}
+.msg-erreur{
+    background-color: #A00;
+    color: #FFF;
+    padding: 10px;
+    margin: 10px 0;
+}
