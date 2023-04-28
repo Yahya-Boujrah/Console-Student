@@ -1,0 +1,38 @@
+<body>
+    <div class="container app-container">
+      <h2 class="page-title">
+        <fa-icon  class="title-icon" [icon]="faFilePen"></fa-icon>
+        Services divers</h2>
+    
+
+        <app-search-bar (DemandSelected)="onSelectDemand($event)"></app-search-bar>
+
+        <div class="wrapper">
+            <div class="demande-number">{{Demandes.length}} demandes disponibles</div> 
+                <div class="section-title">Liste des demandes</div>
+                <div class="table-service">
+                    <table class="table table-hover ">
+                    <thead class="table-header">
+                    <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Type de demande</th>
+                        <th scope="col">État</th>
+                    </tr>
+                    </thead>
+                    <tbody *ngFor="let demande of Demandes" class="table-body" >
+                        <tr>
+                        <!-- <tr *ngIf=" myDemand =='All' || demande.TypeDemande === myDemand"> -->
+                        <td>{{demande.Date}}</td>
+                        <td>{{demande.TypeDemande}}</td>
+                        <td>{{demande.Etat}}</td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+            
+            <app-form-service (demandCreated)="onDemandAdded($event)"></app-form-service>
+
+        </div>
+    
+</div>
+</body>

@@ -1,0 +1,19 @@
+<div class="row row-cols-4 form-service">
+    <div class="col ">
+        <div class="section-title">Passer une nouvelle demande</div>
+        <label >Type de demande</label>
+        <div>
+            <select class="form-select" [(ngModel)]="selectedValue">
+                <option value=""></option>
+                <option value="Certificat de Scolarité">Certificat de Scolarité</option>
+                <option value="Attestation d'inscription">Attestation d'inscription</option>
+                <option value="Attestation de Réussite">Attestation de Réussite</option>
+                <option value="Attestation de Classement">Attestation de Classement</option>
+                <option value="Relevé des notes">Relevé des notes</option>
+            </select>
+            <button (click)="onAddDemand()" class="btn form-button">Envoyer la demande</button>
+            <div class="msg-erreur" *ngIf="message.length !=0">{{message}}</div>
+        </div>
+    
+    </div>
+</div>

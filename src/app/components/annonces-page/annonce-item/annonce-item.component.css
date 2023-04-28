@@ -55,7 +55,7 @@ span{
     font-size: 14pt;
 }
 a{
-    background-color: #2379DB;
+    background-color: #3da5f4;
     padding: 10px;
     color: #FFF;
     text-decoration: none;
@@ -64,5 +64,5 @@ a{
     text-align: center;
     margin-top: 15px;
     margin-bottom: 10px;
-    border: none;
+    border-color:#3da5f4 ;
 }
