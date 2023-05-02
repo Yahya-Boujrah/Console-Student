@@ -5,7 +5,6 @@ import { faNewspaper} from '@fortawesome/free-solid-svg-icons';
 import { HttpErrorResponse } from '@angular/common/http';
 import { CustomResponse } from 'src/app/interfaces/Custom-response';
 import { Observable, catchError, map, of } from 'rxjs';
-import { AppState } from 'src/app/interfaces/App-state';
 
 @Component({
   selector: 'app-annonces',
@@ -16,8 +15,6 @@ import { AppState } from 'src/app/interfaces/App-state';
 export class AnnoncesComponent implements OnInit {
   faNewspaper = faNewspaper;
 
-  // appState$ !: Observable<CustomResponse>;
-
   annonceResponse !: CustomResponse;
 
   constructor(private annonceService : AnnonceService){}
@@ -27,12 +24,5 @@ export class AnnoncesComponent implements OnInit {
       this.annonceResponse = { ...response , data: { annonces: response.data.annonces?.reverse() } }
     });
 
-
-    // this.appState$ = this.annonceService.annonces$
-    // .pipe(
-    //   map(response =>{
-    //     return response
-    //   })
-    // )
   }
 }
