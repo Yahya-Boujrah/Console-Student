@@ -1,0 +1,10 @@
+.form-element{
+    padding: 10px
+}
+.form-horizontal{
+    margin: 15px 30px;
+}
+button{
+    background-color: #3da5f4;
+    border-color: #3da5f4;
+}

@@ -7,7 +7,7 @@ import {Annonce} from '../../../interfaces/Annonce.interface';
   styleUrls: ['./annonce-item.component.css']
 })
 export class AnnonceItemComponent implements OnInit {
-  @Input() Annonce!: {Title: string,  DatePublication:string, Niveaux:string, Filliere:string, Description:string};
+  @Input() Annonce!: {id?: number ,titre: string,  datePublication:any, niveaux:string, filiere:string, contenu:string};
   @Input() index!:number;
 
   // @Output() AnnonceEvent = new EventEmitter<Annonce>();

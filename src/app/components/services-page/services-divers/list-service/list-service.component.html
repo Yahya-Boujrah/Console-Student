@@ -4,28 +4,32 @@
         <fa-icon  class="title-icon" [icon]="faFilePen"></fa-icon>
         Services divers</h2>
     
-
-        <app-search-bar (DemandSelected)="onSelectDemand($event)"></app-search-bar>
-
+        <app-search-bar (DemandSelected)="filterDemande($event)"></app-search-bar>
+        
         <div class="wrapper">
-            <div class="demande-number">{{Demandes.length}} demandes disponibles</div> 
+            <div class="demande-number">{{demandeResponse?.data?.demandes?.length}} demandes disponibles</div> 
                 <div class="section-title">Liste des demandes</div>
                 <div class="table-service">
-                    <table class="table table-hover ">
+                    <table class="table table-hover table-striped">
                     <thead class="table-header">
                     <tr>
                         <th scope="col">Date</th>
                         <th scope="col">Type de demande</th>
                         <th scope="col">État</th>
+                        <th scope="col">Delete</th>
                     </tr>
                     </thead>
-                    <tbody *ngFor="let demande of Demandes" class="table-body" >
+                    <tbody *ngFor="let demande of demandeResponse?.data?.demandes" class="table-body" >
                         <tr>
-                        <!-- <tr *ngIf=" myDemand =='All' || demande.TypeDemande === myDemand"> -->
-                        <td>{{demande.Date}}</td>
-                        <td>{{demande.TypeDemande}}</td>
-                        <td>{{demande.Etat}}</td>
+                        <td>{{demande.dateDemande}}</td>
+                        <td>{{demande.type}}</td>
+                        <td>{{demande.etat}}</td>
+                        <td><fa-icon  class="delete-icon" [icon]="faTrash" ></fa-icon></td>
                         </tr>
+                    </tbody>
+                    <tbody *ngIf="demandeResponse?.data?.demandes?.length === 0 ">
+                        <tr class="aucune-demande"> Aucune demande trouvée</tr>
+                          
                     </tbody>
                     </table>
                 </div>
@@ -33,6 +37,5 @@
             <app-form-service (demandCreated)="onDemandAdded($event)"></app-form-service>
 
         </div>
-    
 </div>
 </body>

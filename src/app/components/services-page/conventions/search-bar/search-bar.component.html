@@ -13,13 +13,12 @@
         </div>
       <div class="col">
         <label >Filtrer par type de demande</label>
-        <select class="form-select" (change)="onSelectDemand()" [(ngModel)]="selectedDemandValue" ngModel="All" name="type">
+        <select class="form-select" [(ngModel)]="selectedConventionValue" (change)="onSelectConvention()">
             <option value="All" selected>All</option>
-            <option value="Certificat de Scolarité">Certificat de Scolarité</option>
-            <option value="Attestation d'inscription">Attestation d'inscription</option>
-            <option value="Attestation de Réussite">Attestation de Réussite</option>
-            <option value="Attestation de Classement">Attestation de Classement</option>
-            <option value="Relevé des notes">Relevé des notes</option>
+            <option value="Projet de fin d'études (PFE)">Projet de fin d'études (PFE)</option>
+            <option value="Projet de fin d'année (PFA)">Projet de fin d'année (PFA)</option>
+            <option value="Projet de fin de semestre (PFS)">Projet de fin de semestre (PFS)</option>
+            <option value="Stage d'observation">Stage d'observation</option>
         </select>
       </div>
     

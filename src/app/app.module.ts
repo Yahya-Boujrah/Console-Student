@@ -12,6 +12,9 @@ import { AnnoncesComponent } from './components/annonces-page/annonces/annonces.
 import { ListServiceComponent } from './components/services-page/services-divers/list-service/list-service.component';
 import { FormServiceComponent } from './components/services-page/services-divers/form-service/form-service.component';
 import { SearchBarComponent } from './components/services-page/services-divers/search-bar/search-bar.component';
+import { FormConventionComponent } from './components/services-page/conventions/form-convention/form-convention.component';
+import { SearchBarConventionComponent } from './components/services-page/conventions/search-bar/search-bar.component';
+import { ListConventionsComponent } from './components/services-page/conventions/list-conventions/list-conventions.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +24,9 @@ import { SearchBarComponent } from './components/services-page/services-divers/s
     ListServiceComponent,
     FormServiceComponent,
     SearchBarComponent,
+    FormConventionComponent,
+    SearchBarConventionComponent,
+    ListConventionsComponent
   
   ],
   imports: [
