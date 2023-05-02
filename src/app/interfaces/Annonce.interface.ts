@@ -1,9 +1,9 @@
 export interface Annonce {
-    
-    Title: string;
-    DatePublication: string;
-    Niveaux: string; 
-    Filliere: string;
-    Description: string; 
+    id?: number;
+    titre: string;
+    datePublication: any;
+    niveaux: string; 
+    filiere: string;
+    contenu: string; 
 
 }

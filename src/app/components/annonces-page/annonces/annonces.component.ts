@@ -1,7 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Annonce } from 'src/app/interfaces/Annonce.interface';
 import { AnnonceService } from 'src/app/services/Annonce.service';
 import { faNewspaper} from '@fortawesome/free-solid-svg-icons';
+import { HttpErrorResponse } from '@angular/common/http';
+import { CustomResponse } from 'src/app/interfaces/Custom-response';
+import { Observable, catchError, map, of } from 'rxjs';
+import { AppState } from 'src/app/interfaces/App-state';
 
 @Component({
   selector: 'app-annonces',
@@ -9,16 +13,26 @@ import { faNewspaper} from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./annonces.component.css'],
   providers: [AnnonceService]
 })
-export class AnnoncesComponent {
-  Annonces: Annonce[] =[];
-
+export class AnnoncesComponent implements OnInit {
   faNewspaper = faNewspaper;
+
+  // appState$ !: Observable<CustomResponse>;
+
+  annonceResponse !: CustomResponse;
 
   constructor(private annonceService : AnnonceService){}
 
   ngOnInit(): void {
-    this.annonceService.getAnnonce().subscribe( (Annonces) => {
-      this.Annonces = Annonces
+    this.annonceService.annonces$.subscribe(response =>{
+      this.annonceResponse = { ...response , data: { annonces: response.data.annonces?.reverse() } }
     });
+
+
+    // this.appState$ = this.annonceService.annonces$
+    // .pipe(
+    //   map(response =>{
+    //     return response
+    //   })
+    // )
   }
 }

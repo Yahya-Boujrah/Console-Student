@@ -1,7 +1,9 @@
 export interface Demande {
     id?: number;
-    Date: string;
-    TypeDemande: string;
-    Etat: string;
+    nom?: string;
+    dateDemande: Date;
+    type: string;
+    etat: string;
+    studentId: string;
 
 }

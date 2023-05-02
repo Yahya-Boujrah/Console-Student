@@ -1,16 +1,23 @@
 import { Injectable } from "@angular/core";
 import{HttpClient, HttpHeaders} from "@angular/common/http"
 import {Annonce} from "../interfaces/Annonce.interface"
-import { Observable } from "rxjs";
+import { Observable, of, throwError } from "rxjs";
+import { catchError, tap } from "rxjs/operators";
+import { CustomResponse } from "../interfaces/Custom-response";
 
 @Injectable()
 export class AnnonceService{
-  private apiUrl = 'http://localhost:5000/Annonces';  
+  private readonly apiUrl = 'http://localhost:8080/annonces/list';  
 
   constructor(private http: HttpClient) {}
 
-  getAnnonce(): Observable<Annonce[]> {
-    return this.http.get<Annonce[]>(this.apiUrl);
-  }
+  annonces$ = <Observable<CustomResponse>>
+    this.http.get<CustomResponse>(this.apiUrl)
+    .pipe(
+      tap(console.log),
+      catchError(() => {
+        return of('error')
+      })
+  );
 
 }
