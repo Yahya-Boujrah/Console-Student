@@ -35,4 +35,5 @@
 }
 .delete-icon{
     color: crimson;
+    cursor: pointer;
 }

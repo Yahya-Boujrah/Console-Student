@@ -6,7 +6,7 @@ export interface CustomResponse {
     statusCode: number;
     status: string;
     reason: string;
-    message:    string;
+    message: string;
     developerMessage:string;
     data: {annonces?: Annonce[] , demandes?: Demande[], demande?:Demande};
      

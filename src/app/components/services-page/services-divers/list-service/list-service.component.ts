@@ -6,6 +6,7 @@ import { CustomResponse } from 'src/app/interfaces/Custom-response';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 
 
+
 @Component({
   selector: 'app-list-service',
   templateUrl: './list-service.component.html',
@@ -52,5 +53,18 @@ export class ListServiceComponent {
       this.demandeResponse = response;
     });
   }
+
+  
+  deleteDemande(demande: Demande){
+    this.demandeService.deleteDemande$(demande.id as number).subscribe(response => {
+      this.dataSubject.next(
+        {...response, data: 
+          { demandes: this.dataSubject.value.data.demandes.filter( dem  => dem.id !== demande.id)}
+        }
+      )
+      this.demandeResponse = this.dataSubject.value;
+    });
+   
+}
 
 }
