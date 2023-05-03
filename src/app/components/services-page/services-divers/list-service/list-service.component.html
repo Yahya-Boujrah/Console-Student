@@ -24,7 +24,7 @@
                         <td>{{demande.dateDemande}}</td>
                         <td>{{demande.type}}</td>
                         <td>{{demande.etat}}</td>
-                        <td><fa-icon  class="delete-icon" [icon]="faTrash" ></fa-icon></td>
+                        <td> <a (click)="deleteDemande(demande)"><fa-icon  class="delete-icon" [icon]="faTrash" ></fa-icon></a></td>
                         </tr>
                     </tbody>
                     <tbody *ngIf="demandeResponse?.data?.demandes?.length === 0 ">
