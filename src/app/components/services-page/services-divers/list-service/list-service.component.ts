@@ -4,6 +4,7 @@ import { DemandeService } from 'src/app/services/Demande.service';
 import { faFilePen , faTrash} from '@fortawesome/free-solid-svg-icons';
 import { CustomResponse } from 'src/app/interfaces/Custom-response';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 
@@ -29,6 +30,9 @@ export class ListServiceComponent {
     this.demandeService.demandes$.subscribe( (response) => {
         this.dataSubject.next(response); 
         this.demandeResponse = { ...response , data: { demandes: response.data.demandes?.reverse() } } ;
+    },
+    (error : HttpErrorResponse) => {
+      alert(error.message)
     });
 
   }
@@ -44,6 +48,9 @@ export class ListServiceComponent {
             {...response, data: {demandes: [response.data.demande, ...this.dataSubject.value.data.demandes ]}}
           )
           this.demandeResponse = this.dataSubject.value;
+        },
+        (error : HttpErrorResponse) => {
+          alert(error.message)
         });
        
   }
@@ -51,6 +58,9 @@ export class ListServiceComponent {
   filterDemande(type : string){
     this.demandeService.filterDemande$(type, this.dataSubject.value).subscribe(response => {
       this.demandeResponse = response;
+    },
+    (error : HttpErrorResponse) => {
+      alert(error.message)
     });
   }
 
@@ -63,6 +73,9 @@ export class ListServiceComponent {
         }
       )
       this.demandeResponse = this.dataSubject.value;
+    },
+    (error : HttpErrorResponse) => {
+      alert(error.message)
     });
    
 }
