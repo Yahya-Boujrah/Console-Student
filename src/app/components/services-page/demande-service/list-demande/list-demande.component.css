@@ -1,0 +1,52 @@
+.form-service{
+    padding:20px 0;
+    margin-left: 2.7em;
+
+}
+.section-title{
+    margin-left: 2.7em;
+    margin-right:2.7em ;
+    padding: 10px 0;
+    color: #405189;
+    font-size: 18pt;
+    border-bottom: solid 1px rgba(0,0,0,0.1);
+    margin-bottom: 5px;
+}
+.form-button{
+    color: #FFF;
+    margin-top: 10px;
+    border-color: #3da5f4;
+    outline: none;
+    border-radius: 6px;
+    background-color: #405189;
+    cursor: pointer;
+    padding: 10px;
+}
+
+label{
+    margin-top: 0px;
+    font-size: 12pt;
+}
+.msg-erreur{
+    background-color: #A00;
+    color: #FFF;
+    padding: 10px;
+    margin: 10px 0;
+}
+.page-title{
+    background-color: #e3e8eb;
+}
+table{
+    margin-left: 4em;
+    margin-right: 4em;
+}
+.form-element{
+    padding: 10px
+}
+.form-horizontal{
+    margin: 0px 30px;
+}
+button{
+    background-color: #405189;
+    border-color: #3da5f4;
+}

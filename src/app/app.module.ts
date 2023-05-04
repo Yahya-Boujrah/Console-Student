@@ -16,6 +16,7 @@ import { FormConventionComponent } from './components/services-page/conventions/
 import { SearchBarConventionComponent } from './components/services-page/conventions/search-bar/search-bar.component';
 import { ListConventionsComponent } from './components/services-page/conventions/list-conventions/list-conventions.component';
 import { InformationPageComponent } from './components/information-page/information-page.component';
+import { ListDemandeComponent } from './components/services-page/demande-service/list-demande/list-demande.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,8 +29,8 @@ import { InformationPageComponent } from './components/information-page/informat
     FormConventionComponent,
     SearchBarConventionComponent,
     ListConventionsComponent,
-    InformationPageComponent
-  
+    InformationPageComponent,
+    ListDemandeComponent  
   ],
   imports: [ 
     BrowserModule,

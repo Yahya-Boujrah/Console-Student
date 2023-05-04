@@ -4,6 +4,7 @@ import { AnnoncesComponent } from './components/annonces-page/annonces/annonces.
 import { ListServiceComponent } from './components/services-page/services-divers/list-service/list-service.component';
 import { ListConventionsComponent } from './components/services-page/conventions/list-conventions/list-conventions.component';
 import { InformationPageComponent } from './components/information-page/information-page.component';
+import { ListDemandeComponent } from './components/services-page/demande-service/list-demande/list-demande.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,9 @@ const routes: Routes = [
   },
   {
     path:'convention', component: ListConventionsComponent
+  },
+  {
+    path: 'demande-service', component: ListDemandeComponent
   }
 ];
 
