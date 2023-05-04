@@ -1,35 +1,36 @@
-<body>
-    <div class="container app-container">
-        <h2 class="page-title">
-            <fa-icon  class="title-icon" [icon]="faFile"></fa-icon>
-            Demande de Service
-        </h2>
+<div class="container app-container">
+    <h2 class="page-title">
+        <fa-icon  class="title-icon" [icon]="faCircleExclamation"></fa-icon>
+        Demande de Service
+    </h2>
 
-        <div class="wrapper">
-            <div class="section-title">Passer une demande</div>
-            <div class="app-container container">
-                <form class="form-horizontal">
+    <div class="wrapper">
+        <div class="section-title">Passer une demande</div>
+        <div class="app-container container">
+            <form #caseForm ="ngForm" class="form-horizontal">
+                <div class="form-group form-element">
                     <label >Objet de la demande</label><br>
-                    <div class="form-group form-element">
-                        <select class="form-select">
-                            <option value=""></option>
-                            <option value="Demande d'information">Demande d'information</option>
-                            <option value="Réclamation">Réclamation</option>
-                        </select>
-                    </div>
-                    <div class="form-group form-element">
-                        <label >Sujet</label>
-                        <input type="text" class="form-control" required>
-                    </div>
-                    <div class="form-group form-element">
-                        <label >Description</label>
-                        <textarea type="text" class="form-control" required></textarea>
-                    </div>  
-                    <button type="submit" class="btn btn-primary form-element">Envoyer la Demande</button>
-                </form>
-            </div>
-
+                    <select class="form-select" ngModel name="type" required>
+                        <option value=""></option>
+                        <option value="Demande d'information">Demande d'information</option>
+                        <option value="Réclamation">Réclamation</option>
+                    </select>
+                </div>
+                <div class="form-group form-element">
+                    <label >Sujet</label>
+                    <input type="text" ngModel name="sujet" class="form-control" required>
+                </div>
+                <div class="form-group form-element">
+                    <label >Description</label>
+                    <textarea type="text" ngModel name="desciption" class="form-control" required></textarea>
+                </div>  
+                <button (click)="saveCase(caseForm)" class="btn btn-primary form-element" [disabled]="caseForm.invalid">Envoyer la Demande</button>
+            </form>
         </div>
-    
+
+        <div class="message" *ngIf="caseResponse?.statusCode === 201">
+            - Nous vous remercions pour votre participation.
+        </div>
+
+    </div>    
 </div>
-</body>

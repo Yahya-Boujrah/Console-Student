@@ -1,26 +1,42 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { faFile} from '@fortawesome/free-solid-svg-icons';
+import { NgForm } from '@angular/forms';
+import { faCircleExclamation} from '@fortawesome/free-solid-svg-icons';
+import { Case } from 'src/app/interfaces/Case.interface';
+import { CustomResponse } from 'src/app/interfaces/Custom-response';
+import { CaseService } from 'src/app/services/Case.service';
 
 @Component({
   selector: 'app-list-demande',
   templateUrl: './list-demande.component.html',
-  styleUrls: ['./list-demande.component.css']
+  styleUrls: ['./list-demande.component.css'],
+  providers:[CaseService]
 })
 export class ListDemandeComponent {
-  faFile = faFile;
+  faCircleExclamation = faCircleExclamation;
+  caseResponse!: CustomResponse;
 
 
-  selectedValue:string="";
-  message:string='';
+  constructor(private caseService : CaseService){}
 
-  onAddDemand(){
-    if(this.selectedValue ===''){
-      this.message="Veuillez spécifier l'objet de la demande"
-      console.log(this.message);
-    }else{
-        console.log(this.selectedValue);
-      }
-      this.message='';
-    }  
+  saveCase(caseForm  : NgForm){
+    const caseToAdd : Case = {
+        type: caseForm.value.type,
+        sujet: caseForm.value.sujet,
+        description: caseForm.value.description,
+        date: new Date(),
+        studentId: 'current student',
+        origine: 'portail',
+        Statut:'Nouvelle'
+    }
 
+    this.caseService.save$(caseToAdd).subscribe(response => {
+      this.caseResponse = response;
+    },
+    (error : HttpErrorResponse) => {
+      alert(error.message)
+    });
+    caseForm.reset();
+  }
+  
 }
