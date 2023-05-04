@@ -1,3 +1,10 @@
+.horizontal-menu{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+}
 .top-navbar{
     font-weight: 400;
     background: #405189;
@@ -8,7 +15,7 @@
     display: flex;
     gap: 20px;
     align-items:baseline;
-    color: #fff ;
+    color: #e3e8eb ;
 }
 
 .user .user-icon{
@@ -16,7 +23,7 @@
 }
 
 .bottom-navbar{
-    background: #fff;
+    background: #e3e8eb;
     box-shadow: 0px 0px 50px #D3D3D3;
 
 }
@@ -97,4 +104,10 @@
 
 .toggled{
     display:none;
+}
+img{
+    width: 40px;
+    border-radius: 40px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+
 }
