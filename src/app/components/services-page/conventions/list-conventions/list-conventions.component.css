@@ -1,17 +1,9 @@
 .form-service{
     padding:20px 0;
-    margin-left: 2.7em;
+    margin-left: 3.7em;
 
 }
-.section-title{
-    margin-left: 2.7em;
-    margin-right:2.7em ;
-    padding: 10px 0;
-    color: #405189;
-    font-size: 18pt;
-    border-bottom: solid 1px rgba(0,0,0,0.1);
-    margin-bottom: 5px;
-}
+
 .form-button{
     color: #FFF;
     margin-top: 10px;
@@ -28,15 +20,51 @@ label{
     font-size: 12pt;
 }
 .msg-erreur{
-    background-color: #A00;
-    color: #FFF;
+    background-color: #ffcccb;
     padding: 10px;
     margin: 10px 0;
 }
 .page-title{
     background-color: #e3e8eb;
 }
-table{
+
+
+.table-header{
+    background-color: rgba(129, 165, 190, 0.568);
+}
+
+.table-body{
+    background-color: rgba(0,0,0,0.05);
+}
+
+.table-service{
     margin-left: 4em;
     margin-right: 4em;
 }
+.demande-number{
+    margin-left: 4em;
+    font-size: 12pt;
+}
+
+.section-title{
+    /* display: flex;
+    align-items: center; */
+    margin-left: 2.7em;
+    margin-right:2.7em ;
+    padding: 10px 0;
+    color: #405189;
+    font-size: 18pt;
+    border-bottom: solid 1px rgba(0,0,0,0.1);
+    margin-bottom: 5px;
+}
+.aucune-demande{
+    font-size: large;
+    font-weight: bold;
+    color: crimson;
+    text-align: end;
+}
+.delete-icon{
+    color: crimson;
+    cursor: pointer;
+}
+

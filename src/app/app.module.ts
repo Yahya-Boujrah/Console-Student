@@ -16,7 +16,8 @@ import { FormConventionComponent } from './components/services-page/conventions/
 import { SearchBarConventionComponent } from './components/services-page/conventions/search-bar/search-bar.component';
 import { ListConventionsComponent } from './components/services-page/conventions/list-conventions/list-conventions.component';
 import { InformationPageComponent } from './components/information-page/information-page.component';
-import { ListDemandeComponent } from './components/services-page/demande-service/list-demande/list-demande.component';
+import { ListDemandeComponent } from './components/services-page/demande-service/list-demande.component';
+import { SingleAnnonceComponent } from './components/annonces-page/single-annonce/single-annonce.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import { ListDemandeComponent } from './components/services-page/demande-service
     SearchBarConventionComponent,
     ListConventionsComponent,
     InformationPageComponent,
-    ListDemandeComponent  
+    ListDemandeComponent,
+    SingleAnnonceComponent  
   ],
   imports: [ 
     BrowserModule,

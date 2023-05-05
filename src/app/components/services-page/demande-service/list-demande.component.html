@@ -4,7 +4,7 @@
         Demande de Service
     </h2>
 
-    <div class="wrapper">
+    <div class="wrapper" *ngIf="!caseSubmited">
         <div class="section-title">Passer une demande</div>
         <div class="app-container container">
             <form #caseForm ="ngForm" class="form-horizontal">
@@ -27,10 +27,9 @@
                 <button (click)="saveCase(caseForm)" class="btn btn-primary form-element" [disabled]="caseForm.invalid">Envoyer la Demande</button>
             </form>
         </div>
-
-        <div class="message" *ngIf="caseResponse?.statusCode === 201">
-            - Nous vous remercions pour votre participation.
-        </div>
-
     </div>    
+    <div class="message" *ngIf="caseResponse?.statusCode === 201">
+         Nous vous remercions pour votre participation.
+    </div>
+
 </div>

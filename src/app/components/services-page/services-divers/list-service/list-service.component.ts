@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Demande } from 'src/app/interfaces/Demande.interface';
 import { DemandeService } from 'src/app/services/Demande.service';
 import { faFilePen , faTrash} from '@fortawesome/free-solid-svg-icons';
@@ -14,7 +14,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./list-service.component.css'],
   providers: [DemandeService]
 })
-export class ListServiceComponent {
+export class ListServiceComponent implements OnInit {
   @Input() myDemand!:string;
   @Input() myDate!:string;
 
@@ -77,7 +77,6 @@ export class ListServiceComponent {
     (error : HttpErrorResponse) => {
       alert(error.message)
     });
-   
 }
 
 }

@@ -1,6 +1,6 @@
 export interface Convention {
     id?: number;
-    Nom?: string;
+    type: string;
     nomSociete : string;
     adresseSociete : string;
     EmailSociete : string;
@@ -14,6 +14,5 @@ export interface Convention {
     numeroContrantAssurance : string;
     montantGratification : number;
     modalitePaiementGratification : string;
-
 
 }

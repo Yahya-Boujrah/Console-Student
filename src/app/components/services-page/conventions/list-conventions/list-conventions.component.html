@@ -4,54 +4,57 @@
         <fa-icon  class="title-icon" [icon]="faFile"></fa-icon>
         Conventions de stage</h2>
   
-        <app-search-bar-convention></app-search-bar-convention>
+        <!-- <app-search-bar-convention></app-search-bar-convention> -->
 
-        <div class="wrapper">
-            <div class="demande-number"></div> 
-                <div class="section-title">Liste des demandes</div>
-                <div class="table-service">
-                    <table class="table table-hover ">
-                        <thead class="table-header">
-                            <tr>
-                                <th scope="col">Date</th>
-                                <th scope="col">Type de demande</th>
-                                <th scope="col">État</th>
-                            </tr>
-                        </thead>
-                    <!-- <tbody *ngFor="let demande of Demandes" class="table-body" >
-                        <tr>
-                        <td>{{demande.Date}}</td>
-                        <td>{{demande.TypeDemande}}</td>
-                        <td>{{demande.Etat}}</td>
-                        </tr>
-                    </tbody> -->
-                    </table>
-                </div>
-                
-                    
-                        <div class="section-title">Passer une nouvelle demande</div>
-                        <div class="row row-cols-4 form-service">
-                            <div class="col ">
-                                <label >Objet de la demande</label><br>
-                                <div>
-                                    <select class="form-select" [(ngModel)]="selectedValue">
-                                        <option value=""></option>
-                                        <option value="Projet de fin d'études (PFE)">Projet de fin d'études (PFE)</option>
-                                        <option value="Projet de fin d'année (PFA)">Projet de fin d'année (PFA)</option>
-                                        <option value="Projet de fin de semestre (PFS)">Projet de fin de semestre (PFS)</option>
-                                        <option value="Stage d'observation">Stage d'observation</option>
-                                    </select>
-                                    <button (click)="onAddDemand()" class="btn form-button btn-primary">Commencer</button>
-                                    <div class="msg-erreur" *ngIf="message.length !=0">{{message}}</div>
-                                    <div>{{message}}</div>
-                                </div>
-                            </div>
+        <div class="wrapper mt-5">
+            <div class="demande-number">{{conventionResponse?.data?.conventions?.length}} demandes disponibles</div> 
+            <div class="section-title">Liste des demandes</div>
+            <div class="table-service">
+                <table class="table table-hover table-striped">
+                <thead class="table-header">
+                <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Type de demande</th>
+                    <th scope="col">État</th>
+                    <th scope="col">Modifier</th>
+                    <th scope="col">Supprimer</th>
+                </tr>
+                </thead>
+                <tbody *ngFor="let conv of conventionResponse?.data?.conventions" class="table-body" >
+                    <tr>
+                    <td>{{conv.nomSociete}}</td>
+                    <td>{{conv.type}}</td>
+                    <td>{{conv.sujetStage}}</td>
+                    <td> <a (click)="updateConvention(conv)"><fa-icon  class="delete-icon" [icon]="faPenToSquare" ></fa-icon></a></td>
+                    <td> <a (click)="deleteConvention(conv)"><fa-icon  class="delete-icon" [icon]="faTrash" ></fa-icon></a></td>
+                    </tr>
+                </tbody>
+                <tbody *ngIf="conventionResponse?.data?.conventions?.length === 0 ">
+                    <tr class="aucune-demande"> Aucune demande trouvée</tr>
+                      
+                </tbody>
+                </table>
+            </div>
+
+                <div class="section-title">Passer une nouvelle demande</div>
+                <div class="row row-cols-4 form-service">
+                    <div class="col ">
+                        <label >Objet de la demande</label><br>
+                        <div>
+                            <select class="form-select" [(ngModel)]="selectedValue">
+                                <option value=""></option>
+                                <option value="Projet de fin d'études (PFE)">Projet de fin d'études (PFE)</option>
+                                <option value="Projet de fin d'année (PFA)">Projet de fin d'année (PFA)</option>
+                                <option value="Projet de fin de semestre (PFS)">Projet de fin de semestre (PFS)</option>
+                                <option value="Stage d'observation">Stage d'observation</option>
+                            </select>
+                            <button (click)="onAddDemand()" class="btn form-button btn-primary">Commencer</button>
+                            <div class="msg-erreur" *ngIf="message.length !=0">{{message}}</div>
                         </div>
-                    
-                    
-                
-            
-            <app-form-convention ></app-form-convention> 
+                    </div>
+                </div>
+
+            <app-form-convention *ngIf="showForm"[conventionType]="selectedValue" ></app-form-convention> 
 
         </div>
     
