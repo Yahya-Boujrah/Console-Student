@@ -10,16 +10,9 @@ export class AnnonceItemComponent implements OnInit {
   @Input() Annonce!: {id?: number ,titre: string,  datePublication:any, niveaux:string, filiere:string, contenu:string};
   @Input() index!:number;
 
-  // @Output() AnnonceEvent = new EventEmitter<Annonce>();
-
-  // singlePage!:boolean;
-
-  ngOnInit(){
-    // this.singlePage =false;
+  constructor(){
   }
 
-  // onSingleAnnoncePage(annonce:Annonce){
-  // //   this.singlePage=true;
-  // //   this.AnnonceEvent.emit(this.Annonce);
-  // }
+  ngOnInit(){
+  }
 }

@@ -1,53 +1,54 @@
 <div class="app-container container">
-    <form class="form-horizontal">
+    <span>{{conventionType}}</span>
+    <form #conventionForm = "ngForm" class="form-horizontal">
         <div class="form-group form-element">
             <label >Nom de la société</label>
-            <input type="text" class="form-control" required>
+            <input type="text" ngModel name="nom" class="form-control" required>
         </div>
         <div class="form-group form-element">
             <label >Adresse de la société</label>
-            <input type="text" class="form-control" required>
+            <input type="text" ngModel name="adresse" class="form-control" required>
         </div>
         <div class="form-group form-element">
             <label >Email de la société</label>
-            <input type="email" class="form-control" >
+            <input type="email" ngModel name="email" class="form-control" >
         </div>
         <div class="form-group form-element">
             <label >Nom et prénom du représentant de la société</label>
-            <input type="text" class="form-control" required>
+            <input type="text"  ngModel name="representantSociete" class="form-control" required>
         </div>
         <div class="form-group form-element">
             <label >Sujet de stage</label>
-            <input type="text" class="form-control" required>
+            <input type="text" ngModel name="sujet" class="form-control" required>
         </div>
         <div class="form-group form-element">
             <label >Date de début du stage</label>
-            <input type="Date" class="form-control" placeholder="mm/dd/yyyy" required>
+            <input type="Date" ngModel name="dateDebut" class="form-control" placeholder="mm/dd/yyyy" required>
         </div>
         <div class="form-group form-element">
             <label >Date de fin du stage</label>
-            <input type="Date" class="form-control" placeholder="mm/dd/yyyy" required>
+            <input type="Date" ngModel name="dateFin" class="form-control" placeholder="mm/dd/yyyy" required>
         </div>
         <div class="form-group form-element">
             <label >Nom et prénom de l'encadrant côté société</label>
-            <input type="text" class="form-control" >
+            <input type="text" ngModel name="encandrantSociete" class="form-control" >
         </div>
         <div class="form-group form-element">
-            <label >Nom et prénom de l'encadrant côté ENSA</label>
-            <input type="text" class="form-control" >
+            <label >Nom et prénom de l'encadrant côté école</label>
+            <input type="text" ngModel name="encadrantEcole" class="form-control" >
         </div>
         <div class="form-group form-element">
             <label >Numéro de contrant d'assurance</label>
-            <input type="text" class="form-control" >
+            <input type="text" ngModel name="assurance" class="form-control" >
         </div>
         <div class="form-group form-element">
             <label >Montant de la gratification par mois</label>
-            <input type="text" class="form-control" >
+            <input type="text" ngModel name="montant" class="form-control" >
         </div>
         <div class="form-group form-element">
             <label >Modalité du paiement de la gratification (Chèque, Espèces...)</label>
-            <input type="text" class="form-control" >
+            <input type="text" ngModel name="paiement" class="form-control" >
         </div>
-        <button type="submit" class="btn btn-primary form-element">Valider et envoyer la demande</button>
+        <button (click)="saveConvention(conventionForm)" class="btn btn-primary form-element" [disabled]="conventionForm.invalid">Valider et envoyer la demande</button>
     </form>
 </div>

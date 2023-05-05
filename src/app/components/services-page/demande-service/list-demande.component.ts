@@ -15,6 +15,7 @@ import { CaseService } from 'src/app/services/Case.service';
 export class ListDemandeComponent {
   faCircleExclamation = faCircleExclamation;
   caseResponse!: CustomResponse;
+  caseSubmited: boolean = false; 
 
 
   constructor(private caseService : CaseService){}
@@ -32,6 +33,7 @@ export class ListDemandeComponent {
 
     this.caseService.save$(caseToAdd).subscribe(response => {
       this.caseResponse = response;
+      this.caseSubmited = true;
     },
     (error : HttpErrorResponse) => {
       alert(error.message)

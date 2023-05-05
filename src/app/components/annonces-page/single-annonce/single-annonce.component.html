@@ -1,0 +1,27 @@
+
+<div class="container app-container">
+    <h2 class="page-title">
+      <fa-icon  class="title-icon" [icon]="faNewspaper"></fa-icon>
+      {{Annonce.titre}}</h2>
+      <div class="annonce">
+        <div class="">
+          <div class="annonce-title">
+            Annonce
+          </div>
+          <div class="annonce-body">
+              <div class="annonce-label">Date de publication</div>
+              <div class="annonce-info">{{Annonce.datePublication}}</div>
+              
+            <div class="annonce-label">Niveaux concernés</div>
+            <div class="annonce-info">{{Annonce.niveaux}}</div>
+      
+            <div class="annonce-label">Filières concernées</div>
+            <div class="annonce-info">{{Annonce.filiere}}</div>
+      
+            <div class="annonce-info plus-info">
+              {{Annonce.contenu}}
+            </div>
+          </div>
+    </div>
+    </div>
+  </div>
