@@ -1,41 +1,59 @@
-<body>
-    <div class="container app-container">
-      <h2 class="page-title">
-        <fa-icon  class="title-icon" [icon]="faFilePen"></fa-icon>
-        Services divers</h2>
-    
-        <app-search-bar (DemandSelected)="filterDemande($event)"></app-search-bar>
-        
-        <div class="wrapper">
-            <div class="demande-number">{{demandeResponse?.data?.demandes?.length}} demandes disponibles</div> 
-                <div class="section-title">Liste des demandes</div>
-                <div class="table-service">
-                    <table class="table table-hover table-striped">
-                    <thead class="table-header">
-                    <tr>
-                        <th scope="col">Date</th>
-                        <th scope="col">Type de demande</th>
-                        <th scope="col">État</th>
-                        <th scope="col">Supprimer</th>
-                    </tr>
-                    </thead>
-                    <tbody *ngFor="let demande of demandeResponse?.data?.demandes" class="table-body" >
-                        <tr>
-                        <td>{{demande.dateDemande}}</td>
-                        <td>{{demande.type}}</td>
-                        <td>{{demande.etat}}</td>
-                        <td> <a (click)="deleteDemande(demande)"><fa-icon  class="delete-icon" [icon]="faTrash" ></fa-icon></a></td>
-                        </tr>
-                    </tbody>
-                    <tbody *ngIf="demandeResponse?.data?.demandes?.length === 0 ">
-                        <tr class="aucune-demande"> Aucune demande trouvée</tr>
-                          
-                    </tbody>
-                    </table>
-                </div>
-            
-            <app-form-service (demandCreated)="onDemandAdded($event)"></app-form-service>
 
+<section class="container app-container">
+    <h2 class="page-title">
+    <fa-icon  class="title-icon" [icon]="faFilePen"></fa-icon>
+    Services divers</h2>
+
+    <app-search-bar (DemandSelected)="filterDemande($event)"></app-search-bar>
+    
+    <div class="wrapper">
+        <div class="demande-number">{{demandeResponse?.data?.demandes?.length}} demandes disponibles</div> 
+            <div class="section-title">Liste des demandes</div>
+            <div class="table-service">
+                <table class="table table-hover table-striped">
+                <thead class="table-header">
+                <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Type de demande</th>
+                    <th scope="col">État</th>
+                    <th scope="col">Supprimer</th>
+                </tr>
+                </thead>
+                <tbody *ngFor="let demande of demandeResponse?.data?.demandes" class="table-body" >
+                    <tr>
+                    <td>{{demande.dateDemande}}</td>
+                    <td>{{demande.type}}</td>
+                    <td>{{demande.etat}}</td>
+                    <td> <a data-bs-toggle="modal" data-bs-target="#deleteModal"><fa-icon  class="delete-icon" [icon]="faTrash" ></fa-icon></a></td>
+                    </tr>
+                      <!-- Delete Modal -->
+                    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Supprimer cette demande</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Êtes-vous sûres?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="deleteDemande(demande)">Supprimer</button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </tbody>
+                <tbody *ngIf="demandeResponse?.data?.demandes?.length === 0 ">
+                    <tr class="aucune-demande"> Aucune demande trouvée</tr>
+                        
+                </tbody>
+                </table>
+            </div>
         </div>
-</div>
-</body>
+</section>
+        
+<section class="container app-container">
+    <app-form-service (demandCreated)="onDemandAdded($event)"></app-form-service>
+</section>

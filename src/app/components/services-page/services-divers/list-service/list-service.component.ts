@@ -69,7 +69,7 @@ export class ListServiceComponent implements OnInit {
     this.demandeService.deleteDemande$(demande.id as number).subscribe(response => {
       this.dataSubject.next(
         {...response, data: 
-          { demandes: this.dataSubject.value.data.demandes.filter( dem  => dem.id !== demande.id)}
+          { demandes: this.dataSubject.value.data.demandes.filter( dem => dem.id !== demande.id)}
         }
       )
       this.demandeResponse = this.dataSubject.value;
