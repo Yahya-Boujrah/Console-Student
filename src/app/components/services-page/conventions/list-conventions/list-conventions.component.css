@@ -1,7 +1,9 @@
+section{
+    margin-bottom:1.5em;
+}
 .form-service{
-    padding:20px 0;
     margin-left: 3.7em;
-
+    padding: 20px 0;
 }
 
 .form-button{
@@ -40,7 +42,9 @@ label{
 .table-service{
     margin-left: 4em;
     margin-right: 4em;
+    margin-bottom: 4em;
 }
+
 .demande-number{
     margin-left: 4em;
     font-size: 12pt;
@@ -63,8 +67,22 @@ label{
     color: crimson;
     text-align: end;
 }
-.delete-icon{
-    color: crimson;
+.icon{
     cursor: pointer;
+    transition: 0.3s;
 }
+.delete-icon:hover{
+    color: crimson;
+    transition: 0.3s;
+}
+.update-icon:hover{
+    color: green;
+    transition: 0.3s;
+}
+
+.download-icon:hover{
+    color: green;
+    transition: 0.3s;
+}
+
 

@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 
@@ -16,6 +16,8 @@ import { ConventionService } from 'src/app/services/Convention.service';
 export class FormConventionComponent {
   @Input() conventionType!: string;
 
+  @Output() save = new EventEmitter<NgForm>();
+
   conventionResponse!: CustomResponse;
   private dataSubject = new BehaviorSubject<any>(null);
 
@@ -23,34 +25,8 @@ export class FormConventionComponent {
   constructor(private conventionService: ConventionService){}
 
     saveConvention(conventionForm : NgForm){
-      const convention : Convention = {
-        type: this.conventionType,
-        nomSociete : conventionForm.value.nom,
-        adresseSociete : conventionForm.value.adresse,
-        EmailSociete : conventionForm.value.email,
-        NomRepresentantSociete : conventionForm.value.nomRepresentant,
-        NomRepresentantEcole : conventionForm.value.nomRepresentantEcole,
-        sujetStage :  conventionForm.value.sujetStage,
-        dateDebutStage : conventionForm.value.dateDebutStage,
-        dateFinStage : conventionForm.value.dateFinStage,
-        nomEncadrantSociete : conventionForm.value.nomEncadrant,
-        nomEncadrantEcole : conventionForm.value.nomEncadrantEcole,
-        numeroContrantAssurance : conventionForm.value.numeroContrantAssurance,
-        montantGratification : conventionForm.value.montantGratification,
-        modalitePaiementGratification : conventionForm.value.modalitePaiementGratification
-      
-    }
-
-    this.conventionService.saveConvention$(convention).subscribe(response => {
-      this.dataSubject.next(
-        {...response, data: {conventions: [response.data.convention, ...this.dataSubject.value.data.conventions ]}}
-      )
-      this.conventionResponse = this.dataSubject.value;
-    },
-    (error : HttpErrorResponse) => {
-      alert(error.message)
-    });
-    conventionForm.reset();
+      this.save.emit(conventionForm);
+      conventionForm.reset();
   }
   
 }
