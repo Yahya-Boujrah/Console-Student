@@ -6,30 +6,48 @@ import { ListServiceComponent } from './components/services-page/services-divers
 import { ListConventionsComponent } from './components/services-page/conventions/list-conventions/list-conventions.component';
 import { InformationPageComponent } from './components/information-page/information-page.component';
 import { ListDemandeComponent } from './components/services-page/demande-service/list-demande.component';
+import {CredentialsComponent} from "./components/credentials/credentials.component";
+import {CardComponent} from "./components/credentials/card/card.component";
+import {LoginComponent} from "./components/credentials/card/login/login.component";
+import {CneDateComponent} from "./components/credentials/card/cne-date/cne-date.component";
+import {NavigationComponent} from "./components/navigation/navigation.component";
 
 const routes: Routes = [
+  // {
+  //   path:'' , component: CredentialsComponent, children: [
+  //     {path: 'card' , component: CardComponent, children: [
+  //         // {path :'',  redirectTo: 'login'},
+  //         {path: 'login', component: LoginComponent},
+  //         {path: 'cne-date', component: CneDateComponent}
+  //       ]}
+  //   ]
+  // },
   {
-    // path: '' , component: InformationPageComponent
-    path : '', redirectTo: 'information', pathMatch: 'full'
+    path:'' , component: CredentialsComponent
   },
   {
-    path: 'information' , component: InformationPageComponent
-  },
-  {
-    path: 'annonce' , component: AnnoncesComponent
-  },
-  {
-    path:'single-annonce', component: SingleAnnonceComponent,
-  },
-  {
-    path: 'services-divers', component: ListServiceComponent
-  },
-  {
-    path:'convention', component: ListConventionsComponent
-  },
-  {
-    path: 'demande-service', component: ListDemandeComponent
+    path:'navigation', component: NavigationComponent, children : [
+      {
+        path: 'information' , component: InformationPageComponent
+      },
+      {
+        path: 'annonce' , component: AnnoncesComponent
+      },
+      {
+        path:'single-annonce', component: SingleAnnonceComponent,
+      },
+      {
+        path: 'services-divers', component: ListServiceComponent
+      },
+      {
+        path:'convention', component: ListConventionsComponent
+      },
+      {
+        path: 'demande-service', component: ListDemandeComponent
+      }
+    ]
   }
+
 ];
 
 @NgModule({
