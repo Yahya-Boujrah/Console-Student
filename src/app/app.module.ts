@@ -18,6 +18,17 @@ import { ListConventionsComponent } from './components/services-page/conventions
 import { InformationPageComponent } from './components/information-page/information-page.component';
 import { ListDemandeComponent } from './components/services-page/demande-service/list-demande.component';
 import { SingleAnnonceComponent } from './components/annonces-page/single-annonce/single-annonce.component';
+import { CredentialsComponent } from './credentials/credentials.component';
+import { CardComponent } from './credentials/card/card.component';
+import { LoginComponent } from './credentials/card/login/login.component';
+import { CneDateComponent } from './credentials/card/cne-date/cne-date.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatInputModule} from "@angular/material/input";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
+import {MatCardModule} from "@angular/material/card";
+import {MatButtonModule} from '@angular/material/button';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,14 +43,24 @@ import { SingleAnnonceComponent } from './components/annonces-page/single-annonc
     ListConventionsComponent,
     InformationPageComponent,
     ListDemandeComponent,
-    SingleAnnonceComponent  
+    SingleAnnonceComponent,
+    CredentialsComponent,
+    CardComponent,
+    LoginComponent,
+    CneDateComponent
   ],
-  imports: [ 
+  imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

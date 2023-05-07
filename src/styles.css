@@ -11,7 +11,7 @@ body{
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-attachment: fixed;
-    
+
 }
 
 .app-container{
@@ -23,6 +23,7 @@ body{
     margin-top: 50px;
     border-radius: 15px;
 }
+
 
 .page-title{
     color: #686868;
@@ -44,3 +45,5 @@ body{
     color: #405189;
     font-size: 23pt;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
