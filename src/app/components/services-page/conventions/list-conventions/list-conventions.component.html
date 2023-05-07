@@ -6,9 +6,9 @@
     <!-- <app-search-bar-convention></app-search-bar-convention> -->
 
     <div class="wrapper mt-5">
-        <div class="demande-number">{{conventionResponse?.data?.conventions?.length}} demandes disponibles</div> 
+        <div class="demande-number">{{conventionResponse?.data?.conventions?.length}} Demandes disponibles</div> 
         <div class="section-title">Liste des demandes</div>
-        <div class="table-service" id="tableConvention">
+        <div class="table-service" >
             <table class="table table-hover table-striped">
             <thead class="table-header">
             <tr>
@@ -29,6 +29,9 @@
                 <td> <a (click)="downloadPDF()"><fa-icon  class="download-icon icon" [icon]="faDownload" ></fa-icon></a></td>
                 <td> <a type="button" data-bs-toggle="modal" data-bs-target="#deleteModal"><fa-icon  class="delete-icon icon" [icon]="faTrash" ></fa-icon></a></td>
                 </tr>
+
+                <!-- Pdf Template -->
+                <app-convention-pdf-template id="pdf" [convention]="conv" class="d-none" ></app-convention-pdf-template>
 
                 <!-- Delete Modal -->
                 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">

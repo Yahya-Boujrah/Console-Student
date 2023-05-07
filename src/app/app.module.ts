@@ -29,6 +29,8 @@ import {MatNativeDateModule} from "@angular/material/core";
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from '@angular/material/button';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { ConventionPdfTemplateComponent } from './components/services-page/conventions/list-conventions/convention-pdf-template/convention-pdf-template.component';
+
 
 @NgModule({
   declarations: [
@@ -45,6 +47,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     InformationPageComponent,
     ListDemandeComponent,
     SingleAnnonceComponent,
+    ConventionPdfTemplateComponent,
     CredentialsComponent,
     CardComponent,
     LoginComponent,
