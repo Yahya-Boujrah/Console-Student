@@ -28,6 +28,7 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from '@angular/material/button';
+import { ConventionPdfTemplateComponent } from './components/services-page/conventions/list-conventions/convention-pdf-template/convention-pdf-template.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import {MatButtonModule} from '@angular/material/button';
     InformationPageComponent,
     ListDemandeComponent,
     SingleAnnonceComponent,
+    ConventionPdfTemplateComponent,
     CredentialsComponent,
     CardComponent,
     LoginComponent,
