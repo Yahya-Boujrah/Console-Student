@@ -18,16 +18,17 @@ import { ListConventionsComponent } from './components/services-page/conventions
 import { InformationPageComponent } from './components/information-page/information-page.component';
 import { ListDemandeComponent } from './components/services-page/demande-service/list-demande.component';
 import { SingleAnnonceComponent } from './components/annonces-page/single-annonce/single-annonce.component';
-import { CredentialsComponent } from './credentials/credentials.component';
-import { CardComponent } from './credentials/card/card.component';
-import { LoginComponent } from './credentials/card/login/login.component';
-import { CneDateComponent } from './credentials/card/cne-date/cne-date.component';
+import { CredentialsComponent } from './components/credentials/credentials.component';
+import { CardComponent } from './components/credentials/card/card.component';
+import { LoginComponent } from './components/credentials/card/login/login.component';
+import { CneDateComponent } from './components/credentials/card/cne-date/cne-date.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from "@angular/material/input";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from '@angular/material/button';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import {MatButtonModule} from '@angular/material/button';
     CredentialsComponent,
     CardComponent,
     LoginComponent,
-    CneDateComponent
+    CneDateComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,

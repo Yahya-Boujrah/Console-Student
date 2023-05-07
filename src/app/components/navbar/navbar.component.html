@@ -12,7 +12,7 @@
                 </div>
             </div>
         </nav>
-        
+
         <nav class="bottom-navbar">
             <div class="container  nav-container">
                 <ul class="nav page-navigation">
@@ -23,15 +23,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a routerLink="/information" routerLinkActive="router-link-active" class="nav-link">
+                        <a (click)="information()"  routerLinkActive="router-link-active" class="nav-link">
                             <fa-icon  class="menu-icon" [icon]="faUserGroup"></fa-icon>
-                            <span class="menu-title">Informations</span>   
+                            <span class="menu-title">Informations</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a routerLink="/annonce" routerLinkActive="router-link-active"  class="nav-link">
+                        <a (click)="annonce()" routerLinkActive="router-link-active"  class="nav-link">
                             <fa-icon  class="menu-icon" [icon]="faScroll"></fa-icon>
-                            <span class="menu-title">Annonces & avis</span>   
+                            <span class="menu-title">Annonces & avis</span>
                         </a>
                     </li>
                     <li class="nav-item" id="dropdown"  (mouseenter)="onMouseEnter()"
@@ -43,11 +43,11 @@
                         </a>
                         <div class="submenu " [class.toggled]="classToggled" id="menu">
                             <ul class="submenu-item">
-                                <li class="nav-item"><a  routerLink="/services-divers" class="nav-link">Services divers</a>
+                                <li class="nav-item"><a (click)="servicesDivers()" class="nav-link">Services divers</a>
                                 </li>
-                                <li class="nav-item"><a routerLink="/convention" class="nav-link">Conventions de stage</a>
+                                <li class="nav-item"><a (click)="convention()" class="nav-link">Conventions de stage</a>
                                 </li>
-                                <li class="nav-item"><a routerLink="/demande-service" class="nav-link">Demandes de services</a>
+                                <li class="nav-item"><a (click)="demandeService()" class="nav-link">Demandes de services</a>
                                 </li>
                             </ul>
                         </div>
