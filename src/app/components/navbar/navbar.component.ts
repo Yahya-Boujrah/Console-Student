@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faHouse, faUserGroup, faScroll, faNoteSticky , faCaretDown, faUser} from '@fortawesome/free-solid-svg-icons';
+import { faHouse, faUserGroup, faScroll, faNoteSticky , faCaretDown, faUser , faRightFromBracket} from '@fortawesome/free-solid-svg-icons';
 import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
@@ -16,6 +16,7 @@ export class NavbarComponent {
   faNoteSticky = faNoteSticky;
   faCaretDown = faCaretDown;
   faUser = faUser;
+  faRightFromBracket= faRightFromBracket;
 
   dropdown: HTMLLIElement = document.querySelector("#dropdown") as HTMLLIElement;
   menu: HTMLDivElement = document.querySelector("#menu") as HTMLDivElement;

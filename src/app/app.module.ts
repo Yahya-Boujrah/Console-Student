@@ -22,12 +22,6 @@ import { CredentialsComponent } from './components/credentials/credentials.compo
 import { CardComponent } from './components/credentials/card/card.component';
 import { LoginComponent } from './components/credentials/card/login/login.component';
 import { CneDateComponent } from './components/credentials/card/cne-date/cne-date.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatInputModule} from "@angular/material/input";
-import {MatDatepickerModule} from "@angular/material/datepicker";
-import {MatNativeDateModule} from "@angular/material/core";
-import {MatCardModule} from "@angular/material/card";
-import {MatButtonModule} from '@angular/material/button';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { ConventionPdfTemplateComponent } from './components/services-page/conventions/list-conventions/convention-pdf-template/convention-pdf-template.component';
 
@@ -60,12 +54,7 @@ import { ConventionPdfTemplateComponent } from './components/services-page/conve
     FormsModule,
     HttpClientModule,
     FontAwesomeModule,
-    BrowserAnimationsModule,
-    MatInputModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatCardModule,
-    MatButtonModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

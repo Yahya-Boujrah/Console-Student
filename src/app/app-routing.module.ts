@@ -31,10 +31,11 @@ const routes: Routes = [
         path: 'information' , component: InformationPageComponent
       },
       {
-        path: 'annonce' , component: AnnoncesComponent
-      },
-      {
-        path:'single-annonce', component: SingleAnnonceComponent,
+        path: 'annonce' , component: AnnoncesComponent, children: [
+          {
+            path:'single-annonce', component: SingleAnnonceComponent,
+          }
+        ]
       },
       {
         path: 'services-divers', component: ListServiceComponent
