@@ -10,37 +10,44 @@ import {CredentialsComponent} from "./components/credentials/credentials.compone
 import {LoginComponent} from "./components/credentials/login/login.component";
 import {CneDateComponent} from "./components/credentials/cne-date/cne-date.component";
 import {NavigationComponent} from "./components/navigation/navigation.component";
+import {AuthGuard} from "./auth-guard.guard";
 
 const routes: Routes = [
   {
-    path:'' , component: CredentialsComponent, children: [
+    path:'' ,canActivate:[AuthGuard], children:[
+      {
+        path:'' , component: CredentialsComponent, children: [
           {path: '', component: LoginComponent},
           {path: 'cne-date', component: CneDateComponent}
-    ]
-  },
-  {
-    path:'navigation', component: NavigationComponent, children : [
+        ]
+      }
+      ,
       {
-        path: 'information' , component: InformationPageComponent
-      },
-      {
-        path: 'annonce' , component: AnnoncesComponent, children: [
+        path:'navigation', component: NavigationComponent, children : [
           {
-            path:'single-annonce', component: SingleAnnonceComponent,
+            path: 'information' , component: InformationPageComponent
+          },
+          {
+            path: 'annonce' , component: AnnoncesComponent, children: [
+              {
+                path:'single-annonce', component: SingleAnnonceComponent,
+              }
+            ]
+          },
+          {
+            path: 'services-divers', component: ListServiceComponent
+          },
+          {
+            path:'convention', component: ListConventionsComponent
+          },
+          {
+            path: 'demande-service', component: ListDemandeComponent
           }
         ]
       },
-      {
-        path: 'services-divers', component: ListServiceComponent
-      },
-      {
-        path:'convention', component: ListConventionsComponent
-      },
-      {
-        path: 'demande-service', component: ListDemandeComponent
-      }
+      {path: '**', redirectTo:''}
     ]
-  }
+  },
 
 ];
 
