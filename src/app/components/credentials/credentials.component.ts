@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./credentials.component.css']
 })
 export class CredentialsComponent {
+  toggled!: boolean ;
+
+  toggle(){
+    this.toggled = !this.toggled;
+    console.log(this.toggled)
+  }
+
 
 }

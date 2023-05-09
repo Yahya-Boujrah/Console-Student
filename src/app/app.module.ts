@@ -19,9 +19,8 @@ import { InformationPageComponent } from './components/information-page/informat
 import { ListDemandeComponent } from './components/services-page/demande-service/list-demande.component';
 import { SingleAnnonceComponent } from './components/annonces-page/single-annonce/single-annonce.component';
 import { CredentialsComponent } from './components/credentials/credentials.component';
-import { CardComponent } from './components/credentials/card/card.component';
-import { LoginComponent } from './components/credentials/card/login/login.component';
-import { CneDateComponent } from './components/credentials/card/cne-date/cne-date.component';
+import { LoginComponent } from './components/credentials/login/login.component';
+import { CneDateComponent } from './components/credentials/cne-date/cne-date.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { ConventionPdfTemplateComponent } from './components/services-page/conventions/list-conventions/convention-pdf-template/convention-pdf-template.component';
 
@@ -43,7 +42,6 @@ import { ConventionPdfTemplateComponent } from './components/services-page/conve
     SingleAnnonceComponent,
     ConventionPdfTemplateComponent,
     CredentialsComponent,
-    CardComponent,
     LoginComponent,
     CneDateComponent,
     NavigationComponent
