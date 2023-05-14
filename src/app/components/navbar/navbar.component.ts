@@ -35,19 +35,23 @@ export class NavbarComponent {
   }
 
   annonce(){
-    this.router.navigate(['annonce'], {relativeTo: this.route})
+    this.router.navigate(['annonce'], {relativeTo: this.route});
   }
   information(){
-    this.router.navigate(['information'], {relativeTo: this.route})
+    this.router.navigate(['information'], {relativeTo: this.route});
   }
   servicesDivers(){
-    this.router.navigate(['services-divers'], {relativeTo: this.route})
+    this.router.navigate(['services-divers'], {relativeTo: this.route});
   }
   convention(){
-    this.router.navigate(['convention'], {relativeTo: this.route})
+    this.router.navigate(['convention'], {relativeTo: this.route});
   }
   demandeService(){
-    this.router.navigate(['demande-service'], {relativeTo: this.route})
+    this.router.navigate(['demande-service'], {relativeTo: this.route});
+  }
+  deconnexion(){
+    sessionStorage.removeItem('token');
+    this.router.navigate([''], {relativeTo: this.route});
   }
 
 }

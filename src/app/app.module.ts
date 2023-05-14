@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+import { NgToastModule } from 'ng-angular-popup'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +25,8 @@ import { CneDateComponent } from './components/credentials/cne-date/cne-date.com
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { ConventionPdfTemplateComponent } from './components/services-page/conventions/list-conventions/convention-pdf-template/convention-pdf-template.component';
 import {AuthInterceptorService} from "./services/auth-interceptor.service";
+import { FooterComponent } from './components/footer/footer.component';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
 
 
 @NgModule({
@@ -45,7 +48,9 @@ import {AuthInterceptorService} from "./services/auth-interceptor.service";
     CredentialsComponent,
     LoginComponent,
     CneDateComponent,
-    NavigationComponent
+    NavigationComponent,
+    FooterComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +58,7 @@ import {AuthInterceptorService} from "./services/auth-interceptor.service";
     FormsModule,
     HttpClientModule,
     FontAwesomeModule,
+    NgToastModule
 
   ],
   providers: [{provide : HTTP_INTERCEPTORS, useClass : AuthInterceptorService, multi : true}],
