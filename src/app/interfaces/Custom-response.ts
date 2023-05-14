@@ -9,6 +9,5 @@ export interface CustomResponse {
     reason: string;
     message: string;
     developerMessage:string;
-    data: {annonces?: Annonce[] , demandes?: Demande[], demande?:Demande , conventions?: Convention[] , convention?: Convention};
-     
+    data: {annonces?: Annonce[] , demandes?: Demande[], demande?:Demande , conventions?: Convention[] , convention?: Convention};  
 }

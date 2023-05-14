@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './cne-date.component.html',
   styleUrls: ['./cne-date.component.css']
 })
-export class CneDateComponent {
+export class CneDateComponent 
+{
 
 }

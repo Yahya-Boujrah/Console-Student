@@ -11,17 +11,17 @@ import {LoginComponent} from "./components/credentials/login/login.component";
 import {CneDateComponent} from "./components/credentials/cne-date/cne-date.component";
 import {NavigationComponent} from "./components/navigation/navigation.component";
 import {AuthGuard} from "./auth-guard.guard";
+import { ErrorPageComponent } from './components/error-page/error-page.component';
 
 const routes: Routes = [
   {
+    path:'' , component: CredentialsComponent, children: [
+      {path: '', component: LoginComponent},
+      {path: 'cne-date', component: CneDateComponent}
+    ]
+  },
+  {
     path:'' ,canActivate:[AuthGuard], children:[
-      {
-        path:'' , component: CredentialsComponent, children: [
-          {path: '', component: LoginComponent},
-          {path: 'cne-date', component: CneDateComponent}
-        ]
-      }
-      ,
       {
         path:'navigation', component: NavigationComponent, children : [
           {
@@ -45,7 +45,8 @@ const routes: Routes = [
           }
         ]
       },
-      {path: '**', redirectTo:''}
+      {path: 'error', component: ErrorPageComponent},
+      {path: '**', redirectTo:'error'}
     ]
   },
 
