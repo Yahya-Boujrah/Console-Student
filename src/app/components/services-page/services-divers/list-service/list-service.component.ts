@@ -5,6 +5,7 @@ import { faFilePen , faTrash} from '@fortawesome/free-solid-svg-icons';
 import { CustomResponse } from 'src/app/interfaces/Custom-response';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { HttpErrorResponse } from '@angular/common/http';
+import { NgToastService } from 'ng-angular-popup';
 
 
 
@@ -21,10 +22,11 @@ export class ListServiceComponent implements OnInit {
   faFilePen = faFilePen;
   faTrash = faTrash;
   demandeResponse !: CustomResponse;
+  deleteDemand !: Demande;
 
   private dataSubject = new BehaviorSubject<any>(null);
 
-  constructor(private demandeService:DemandeService){}
+  constructor(private demandeService:DemandeService,  private popup: NgToastService){}
 
   ngOnInit(): void {
     this.demandeService.demandes$.subscribe( (response) => {
@@ -48,10 +50,10 @@ export class ListServiceComponent implements OnInit {
             {...response, data: {demandes: [response.data.demande, ...this.dataSubject.value.data.demandes ]}}
           )
           this.demandeResponse = this.dataSubject.value;
-        },
-        (error : HttpErrorResponse) => {
-          alert(error.message)
-        });
+          this.popup.success({detail:"Success",summary:"Demand saved successfully",duration:2500});
+        }, error => {
+          this.popup.error({detail:"Error",summary:"Something gone wrong",duration:2500});
+        })
        
   }
 
@@ -69,7 +71,7 @@ export class ListServiceComponent implements OnInit {
     this.demandeService.deleteDemande$(demande.id as number).subscribe(response => {
       this.dataSubject.next(
         {...response, data: 
-          { demandes: this.dataSubject.value.data.demandes.filter( dem => dem.id !== demande.id)}
+          { demandes: this.dataSubject.value.data.demandes.filter( (dem: { id: number | undefined; }) => dem.id !== demande.id)}
         }
       )
       this.demandeResponse = this.dataSubject.value;
@@ -77,6 +79,23 @@ export class ListServiceComponent implements OnInit {
     (error : HttpErrorResponse) => {
       alert(error.message)
     });
+}
+
+onOpenModal(demand: any, mode: string){
+
+  const container = document.getElementById('app-container');
+  const button = document.createElement('button');
+  button.type ='button';
+  button.style.display = 'none';
+  button.setAttribute('data-bs-toggle', 'modal');
+
+
+  if(mode === 'delete'){
+    this.deleteDemand = demand;
+    button.setAttribute('data-bs-target', '#deleteModal');
+  }
+  container?.appendChild(button);
+  button.click();
 }
 
 }

@@ -11,18 +11,14 @@ export class FormServiceComponent {
 
   selectedValue:string="";
   message:string='';
-  i: number = 1;
 
   onAddDemand(){
     if(this.selectedValue ===''){
       this.message="Veuillez spécifier l'objet de la demande"
     }else{
       const newDemand = {
-        nom:'Demande ' + (this.i++),
-        dateDemande : new Date(),
+        nom:'Demande ' +  this.selectedValue,
         type : this.selectedValue,
-        studentId:'current student',
-        etat : 'Nouvelle'
       }
       this.demandCreated.emit(newDemand);
       this.message='';

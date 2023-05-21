@@ -1,5 +1,6 @@
 .sticky-footer {
     padding: 0.5rem 0;
     flex-shrink: 0;
+    height: 95px;
   }
   

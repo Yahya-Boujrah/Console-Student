@@ -4,7 +4,7 @@
         Demande de Service
     </h2>
 
-    <div class="wrapper" *ngIf="!caseSubmited">
+    <div class="wrapper">
         <div class="section-title">Passer une demande</div>
         <div class="app-container container">
             <form #caseForm ="ngForm" class="form-horizontal">
@@ -28,8 +28,8 @@
             </form>
         </div>
     </div>    
-    <div class="message" *ngIf="caseResponse?.statusCode === 201">
+    <!-- <div class="message" *ngIf="caseResponse?.statusCode === 201">
             Demande envoyée avec succès
-    </div>
+    </div> -->
 
 </div>

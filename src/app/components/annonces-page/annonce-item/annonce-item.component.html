@@ -2,20 +2,20 @@
     <span >{{index}}</span>
     <div class="">
       <div class="annonce-title">
-        {{Annonce.titre}}
+        {{annonce.titre}}
       </div>
       <div class="annonce-body">
           <div class="annonce-label">Date de publication</div>
-          <div class="annonce-info">{{Annonce.datePublication}}</div>
+          <div class="annonce-info">{{annonce.datePublication}}</div>
           
         <div class="annonce-label">Niveaux concernés</div>
-        <div class="annonce-info">{{Annonce.niveaux}}</div>
+        <div class="annonce-info">{{annonce.niveaux}}</div>
   
         <div class="annonce-label">Filières concernées</div>
-        <div class="annonce-info">{{Annonce.filiere}}</div>
+        <div class="annonce-info">{{annonce.filiere}}</div>
   
-        <div class="annonce-info plus-info">{{Annonce.contenu}}
-          <a routerLink="/single-annonce" [state]=Annonce class="btn btn-primary" >Plus de détails</a>
+        <div class="annonce-info plus-info">{{annonce.contenu}}
+          <a (click)="singleAnnonce()" class="btn btn-primary" >Plus de détails</a>
         </div>
       </div>
     </div>

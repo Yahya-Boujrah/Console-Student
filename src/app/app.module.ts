@@ -27,6 +27,7 @@ import { ConventionPdfTemplateComponent } from './components/services-page/conve
 import {AuthInterceptorService} from "./services/auth-interceptor.service";
 import { FooterComponent } from './components/footer/footer.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
+import { ResultsPageComponent } from './components/results-page/results-page.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { ErrorPageComponent } from './components/error-page/error-page.component
     CneDateComponent,
     NavigationComponent,
     FooterComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    ResultsPageComponent
   ],
   imports: [
     BrowserModule,

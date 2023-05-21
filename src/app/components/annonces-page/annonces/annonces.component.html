@@ -4,10 +4,10 @@
     <fa-icon  class="title-icon" [icon]="faNewspaper"></fa-icon>
     Annonces et avis</h2>
   
-  <div class="annonce-number">{{annonceResponse?.data?.annonces?.length}} Avis disponibles</div> 
+  <div class="annonce-number">{{annonceResponse?.data?.annonces!.length}} Avis disponibles</div> 
   <div class="row">
-    <app-annonce-item *ngFor="let Annonce of annonceResponse?.data?.annonces; index as index"
-      [Annonce]="Annonce" [index]="index+1" class="col-6" > 
+    <app-annonce-item *ngFor="let annonce of annonceResponse?.data?.annonces; index as index"
+      [annonce]="annonce" [index]="index+1" class="col-6" > 
     </app-annonce-item>
   </div>
 </div>

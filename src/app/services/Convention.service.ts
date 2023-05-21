@@ -36,7 +36,7 @@ export class ConventionService {
   );
 
   updateConvention$ = (convention:Convention) => <Observable<CustomResponse>>
-  this.http.post<CustomResponse>(`${this.apiUrl}/conventions/update` , convention, httpOptions)
+  this.http.put<CustomResponse>(`${this.apiUrl}/conventions/update` , convention, httpOptions)
   .pipe(
     tap(console.log),
     catchError(() => {

@@ -17,7 +17,7 @@ export class SingleAnnonceComponent implements OnInit {
   }
 
   ngOnInit(){
-    this.Annonce=history.state;
+    this.Annonce = history.state.annonce;
   }
 
 }
