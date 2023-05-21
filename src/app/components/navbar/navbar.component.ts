@@ -67,6 +67,7 @@ export class NavbarComponent implements OnInit{
   }
   deconnexion(){
     sessionStorage.removeItem('token');
+    sessionStorage.removeItem('passwordChanged');
     this.router.navigate(['']);
   }
 

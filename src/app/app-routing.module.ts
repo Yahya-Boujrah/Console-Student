@@ -13,6 +13,7 @@ import {NavigationComponent} from "./components/navigation/navigation.component"
 import {AuthGuard} from "./auth-guard.guard";
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { ResultsPageComponent } from './components/results-page/results-page.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,9 @@ const routes: Routes = [
       {path: '', component: LoginComponent},
       {path: 'cne-date', component: CneDateComponent}
     ]
+  },
+  {
+    path:'change-pwd', component: ChangePasswordComponent,canActivate:[AuthGuard]
   },
   {
     path:'' ,canActivate:[AuthGuard], children:[

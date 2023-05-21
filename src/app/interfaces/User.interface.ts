@@ -10,5 +10,6 @@ export interface User {
     lieuNaissance : string;
     email : string;
     tel : string;
+    isPasswordChanged: Boolean;
 
 }
