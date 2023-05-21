@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
-import { faHouse, faUserGroup, faScroll, faNoteSticky , faCaretDown, faUser , faRightFromBracket} from '@fortawesome/free-solid-svg-icons';
+import { Component, OnInit } from '@angular/core';
+import { faHouse, faUserGroup, faScroll, faNoteSticky , faCaretDown, faUser , faRightFromBracket, faSquarePollHorizontal} from '@fortawesome/free-solid-svg-icons';
 import {ActivatedRoute, Router} from "@angular/router";
+import { User } from 'src/app/interfaces/User.interface';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit{
   username: string = 'NOM Prenom'
 
   faHouse = faHouse;
@@ -17,14 +19,25 @@ export class NavbarComponent {
   faCaretDown = faCaretDown;
   faUser = faUser;
   faRightFromBracket= faRightFromBracket;
+  faSquarePollHorizontal= faSquarePollHorizontal
 
   dropdown: HTMLLIElement = document.querySelector("#dropdown") as HTMLLIElement;
   menu: HTMLDivElement = document.querySelector("#menu") as HTMLDivElement;
 
-
   classToggled : boolean = true;
 
-  constructor(private route:ActivatedRoute, private router:Router) {
+  user !:User;
+
+
+  constructor(private route:ActivatedRoute, private router:Router, private loginService: LoginService) {
+  }
+
+  ngOnInit(): void {
+    this.loginService.CurrentUser$.subscribe(user =>
+      this.user = user,
+    
+    );
+    this.username = this.user.nom + ' ' + this.user.prenom;
   }
 
   onMouseEnter(){
@@ -35,7 +48,7 @@ export class NavbarComponent {
   }
 
   annonce(){
-    this.router.navigate(['annonce'], {relativeTo: this.route});
+    this.router.navigate(['annonces'], {relativeTo: this.route});
   }
   information(){
     this.router.navigate(['information'], {relativeTo: this.route});
@@ -49,9 +62,13 @@ export class NavbarComponent {
   demandeService(){
     this.router.navigate(['demande-service'], {relativeTo: this.route});
   }
+  results(){
+    this.router.navigate(['results'], {relativeTo: this.route});
+  }
   deconnexion(){
     sessionStorage.removeItem('token');
-    this.router.navigate([''], {relativeTo: this.route});
+    this.router.navigate(['']);
   }
+
 
 }

@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { faCircleExclamation} from '@fortawesome/free-solid-svg-icons';
+import { NgToastService } from 'ng-angular-popup';
 import { Case } from 'src/app/interfaces/Case.interface';
 import { CustomResponse } from 'src/app/interfaces/Custom-response';
 import { CaseService } from 'src/app/services/Case.service';
@@ -18,7 +19,7 @@ export class ListDemandeComponent {
   caseSubmited: boolean = false; 
 
 
-  constructor(private caseService : CaseService){}
+  constructor(private caseService : CaseService,  private popup: NgToastService){}
 
   saveCase(caseForm  : NgForm){
     const caseToAdd : Case = {
@@ -34,9 +35,9 @@ export class ListDemandeComponent {
     this.caseService.save$(caseToAdd).subscribe(response => {
       this.caseResponse = response;
       this.caseSubmited = true;
-    },
-    (error : HttpErrorResponse) => {
-      alert(error.message)
+      this.popup.success({detail:"Success",summary:"Demand sent successfully",duration:2500});
+    }, error => {
+      this.popup.error({detail:"Error",summary:"Something gone wrong",duration:2500});
     });
     caseForm.reset();
   }

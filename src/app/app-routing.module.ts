@@ -12,6 +12,7 @@ import {CneDateComponent} from "./components/credentials/cne-date/cne-date.compo
 import {NavigationComponent} from "./components/navigation/navigation.component";
 import {AuthGuard} from "./auth-guard.guard";
 import { ErrorPageComponent } from './components/error-page/error-page.component';
+import { ResultsPageComponent } from './components/results-page/results-page.component';
 
 const routes: Routes = [
   {
@@ -28,11 +29,10 @@ const routes: Routes = [
             path: 'information' , component: InformationPageComponent
           },
           {
-            path: 'annonce' , component: AnnoncesComponent, children: [
-              {
-                path:'single-annonce', component: SingleAnnonceComponent,
-              }
-            ]
+            path: 'annonces' , component: AnnoncesComponent,children:[]
+          },
+          {
+            path:'annonces/single-annonce', component: SingleAnnonceComponent,
           },
           {
             path: 'services-divers', component: ListServiceComponent
@@ -42,11 +42,14 @@ const routes: Routes = [
           },
           {
             path: 'demande-service', component: ListDemandeComponent
+          },
+          {
+            path:'results', component:ResultsPageComponent
           }
         ]
       },
       {path: 'error', component: ErrorPageComponent},
-      {path: '**', redirectTo:'error'}
+      // {path: '**', redirectTo:'error'}
     ]
   },
 

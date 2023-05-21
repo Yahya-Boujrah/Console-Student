@@ -1,86 +1,190 @@
-<section class="container app-container">
+<section class="container app-container" id="app-container">
     <h2 class="page-title">
-    <fa-icon  class="title-icon" [icon]="faFile"></fa-icon>
-    Conventions de stage</h2>
+        <fa-icon class="title-icon" [icon]="faFile"></fa-icon>
+        Conventions de stage
+    </h2>
 
     <!-- <app-search-bar-convention></app-search-bar-convention> -->
 
     <div class="wrapper mt-5">
-        <div class="demande-number">{{conventionResponse?.data?.conventions?.length}} Demandes disponibles</div> 
+        <div class="demande-number">{{conventionResponse?.data?.conventions?.length}} Demandes disponibles</div>
         <div class="section-title">Liste des demandes</div>
-        <div class="table-service" >
+        <div class="table-service">
             <table class="table table-hover table-striped">
-            <thead class="table-header">
-            <tr>
-                <th scope="col">Date</th>
-                <th scope="col">Type de demande</th>
-                <th scope="col">État</th>
-                <th scope="col">Modifier</th>
-                <th scope="col">Télécharger</th>
-                <th scope="col">Supprimer</th>
-            </tr>
-            </thead>
-            <tbody *ngFor="let conv of conventionResponse?.data?.conventions" class="table-body" >
-                <tr>
-                <td>{{conv.nomSociete}}</td>
-                <td>{{conv.type}}</td>
-                <td>{{conv.sujetStage}}</td>
-                <td> <a (click)="updateConvention(conv)"><fa-icon  class="update-icon icon" [icon]="faPenToSquare" ></fa-icon></a></td>
-                <td> <a (click)="downloadPDF()"><fa-icon  class="download-icon icon" [icon]="faDownload" ></fa-icon></a></td>
-                <td> <a type="button" data-bs-toggle="modal" data-bs-target="#deleteModal"><fa-icon  class="delete-icon icon" [icon]="faTrash" ></fa-icon></a></td>
-                </tr>
+                <thead class="table-header">
+                    <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Type de demande</th>
+                        <th scope="col">État</th>
+                        <th scope="col">Modifier</th>
+                        <th scope="col">Télécharger</th>
+                        <th scope="col">Supprimer</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let conv of conventionResponse?.data?.conventions" class="table-body">
+                    <tr>
+                        <td>{{conv.nomSociete}}</td>
+                        <td>{{conv.type}}</td>
+                        <td>{{conv.sujetStage}}</td>
+                        <td> <a (click)="onOpenModal(conv,'edit')"><fa-icon class="update-icon icon"
+                                    [icon]="faPenToSquare"></fa-icon></a></td>
+                        <td> <a (click)="downloadPDF()"><fa-icon class="download-icon icon"
+                                    [icon]="faDownload"></fa-icon></a></td>
+                        <td> <a (click)="onOpenModal(conv,'delete')"><fa-icon class="delete-icon icon"
+                                    [icon]="faTrash"></fa-icon></a></td>
+                    </tr>
 
-                <!-- Pdf Template -->
-                <!-- <app-convention-pdf-template id="pdf" [convention]="conv"  ></app-convention-pdf-template> -->
+                    <!-- Pdf Template -->
+                    <!-- <app-convention-pdf-template id="pdf" [convention]="conv"  ></app-convention-pdf-template> -->
 
-                <!-- Delete Modal -->
-                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Supprimer cette convention</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            Êtes-vous sûres?
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                            <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="deleteConvention(conv)">Supprimer</button>
-                        </div>
+                </tbody>
+                <tbody *ngIf="conventionResponse?.data?.conventions?.length === 0 ">
+                    <tr class="aucune-demande"> Aucune demande trouvée</tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Update Modal -->
+        <div class="modal fade" id="updateModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg bg-light " style="border-radius:10px">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Upate Convention</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <form #conventionForm="ngForm" class="form-horizontal">
+                                <div class="col form-group form-element d-none">
+                                        <input type="text" ngModel="{{updateConv?.id}}" name="id"
+                                            class="form-control" required>
+                                    </div>
+                                <div class="row">
+                                    <div class="col form-group form-element">
+                                        <label>Nom de la société</label>
+                                        <input type="text" ngModel="{{updateConv?.nomSociete}}" name="nom"
+                                            class="form-control" required>
+                                    </div>
+                                    <div class="col form-group form-element">
+                                        <label>Adresse de la société</label>
+                                        <input type="text" ngModel="{{updateConv?.adresseSociete}}" name="adresse"
+                                            class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col form-group form-element">
+                                        <label>Email de la société</label>
+                                        <input type="email" ngModel="{{updateConv?.EmailSociete}}" name="email"
+                                            class="form-control">
+                                    </div>
+                                    <div class="col form-group form-element">
+                                        <label>Nom et prénom du représentant de la société</label>
+                                        <input type="text" ngModel="{{updateConv?.NomRepresentantSociete}}"
+                                            name="representantSociete" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col form-group form-element">
+                                        <label>Sujet de stage</label>
+                                        <input type="text" ngModel="{{updateConv?.sujetStage}}" name="sujet"
+                                            class="form-control" required>
+                                    </div>
+                                    <div class="col form-group form-element">
+                                        <label>Date de début du stage</label>
+                                        <input type="Date" ngModel="{{updateConv?.dateDebutStage}}" name="dateDebut"
+                                            class="form-control" placeholder="mm/dd/yyyy" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class=" col form-group form-element">
+                                        <label>Date de fin du stage</label>
+                                        <input type="Date" ngModel="{{updateConv?.dateFinStage}}" name="dateFin"
+                                            class="form-control" placeholder="mm/dd/yyyy" required>
+                                    </div>
+                                    <div class="col form-group form-element">
+                                        <label>Nom et prénom de l'encadrant côté société</label>
+                                        <input type="text" ngModel="{{updateConv?.nomEncadrantSociete}}"
+                                            name="encandrantSociete" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col form-group form-element">
+                                        <label>Nom et prénom de l'encadrant côté école</label>
+                                        <input type="text" ngModel="{{updateConv?.nomEncadrantEcole}}"
+                                            name="encadrantEcole" class="form-control">
+                                    </div>
+                                    <div class="col form-group form-element">
+                                        <label>Numéro de contrant d'assurance</label>
+                                        <input type="text" ngModel="{{updateConv?.numeroContrantAssurance}}"
+                                            name="assurance" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col form-group form-element">
+                                        <label>Montant de la gratification par mois</label>
+                                        <input type="text" ngModel="{{updateConv?.montantGratification}}" name="montant"
+                                            class="form-control">
+                                    </div>
+                                    <div class="col form-group form-element">
+                                        <label>Modalité du paiement de la gratification (Chèque, Espèces...)</label>
+                                        <input type="text" ngModel="{{updateConv?.modalitePaiementGratification}}"
+                                            name="paiement" class="form-control">
+                                    </div>
+                                </div>
+                                <button (click)="updateConvention(conventionForm.value)"
+                                    class="btn btn-primary form-element m-3" [disabled]="conventionForm.invalid"
+                                    data-bs-dismiss="modal">Valider et envoyer la demande</button>
+                            </form>
                         </div>
                     </div>
                 </div>
-            </tbody>
-            <tbody *ngIf="conventionResponse?.data?.conventions?.length === 0 ">
-                <tr class="aucune-demande"> Aucune demande trouvée</tr>    
-            </tbody>
-            </table>
+            </div>
+        </div>
+        <!-- Delete Modal -->
+        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Supprimer cette convention</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Êtes-vous sûres?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                            (click)="deleteConvention(deleteConv)">Supprimer</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
 </section>
 <section class="container app-container">
-
-            <div class="section-title">Passer une nouvelle demande</div>
-            <div class="row row-cols-4 form-service">
-                <div class="col ">
-                    <label >Objet de la demande</label><br>
-                    <div>
-                        <select class="form-select" [(ngModel)]="selectedValue">
-                            <option value=""></option>
-                            <option value="Projet de fin d'études (PFE)">Projet de fin d'études (PFE)</option>
-                            <option value="Projet de fin d'année (PFA)">Projet de fin d'année (PFA)</option>
-                            <option value="Projet de fin de semestre (PFS)">Projet de fin de semestre (PFS)</option>
-                            <option value="Stage d'observation">Stage d'observation</option>
-                        </select>
-                        <button (click)="onAddDemand()" class="btn form-button btn-primary" [disabled]="showForm">Commencer</button>
-                        <div class="msg-erreur" *ngIf="message.length !=0">{{message}}</div>
-                    </div>
-                </div>
+    <div class="section-title">Passer une nouvelle demande</div>
+    <div class="row row-cols-4 form-service">
+        <div class="col ">
+            <label>Objet de la demande</label><br>
+            <div>
+                <select class="form-select" [(ngModel)]="selectedValue">
+                    <option value=""></option>
+                    <option value="Projet de fin d'études (PFE)">Projet de fin d'études (PFE)</option>
+                    <option value="Projet de fin d'année (PFA)">Projet de fin d'année (PFA)</option>
+                    <option value="Projet de fin de semestre (PFS)">Projet de fin de semestre (PFS)</option>
+                    <option value="Stage d'observation">Stage d'observation</option>
+                </select>
+                <button (click)="onAddDemand()" class="btn form-button btn-primary"
+                    [disabled]="showForm">Commencer</button>
+                <div class="msg-erreur" *ngIf="message.length !=0">{{message}}</div>
             </div>
+        </div>
+    </div>
 
-        <app-form-convention *ngIf="showForm" [conventionType]="selectedValue" (save)="saveConvention($event)" ></app-form-convention> 
+    <app-form-convention *ngIf="showForm" [conventionType]="selectedValue"
+        (save)="saveConvention($event)"></app-form-convention>
 
 
 </section>

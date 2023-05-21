@@ -53,6 +53,12 @@
                         </div>
                     </li>
                     <li class="nav-item">
+                        <a (click)="results()" routerLinkActive="router-link-active"  class="nav-link">
+                            <fa-icon  class="menu-icon" [icon]="faSquarePollHorizontal"></fa-icon>
+                            <span class="menu-title">Résultats</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a (click)="deconnexion()"  routerLinkActive="router-link-active"  class="nav-link">
                             <fa-icon  class="menu-icon" [icon]="faRightFromBracket"></fa-icon>
                             <span class="menu-title">Deconnexion</span>

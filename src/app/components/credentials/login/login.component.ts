@@ -24,7 +24,7 @@ export class LoginComponent {
         }
     }, error => {
       this.popup.error({detail:"Error",summary:"Something gone wrong",duration:2500});
-    })
+    });
     form.reset();
   }
 }
