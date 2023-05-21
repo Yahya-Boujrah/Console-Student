@@ -28,6 +28,7 @@ import {AuthInterceptorService} from "./services/auth-interceptor.service";
 import { FooterComponent } from './components/footer/footer.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { ResultsPageComponent } from './components/results-page/results-page.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { ResultsPageComponent } from './components/results-page/results-page.com
     NavigationComponent,
     FooterComponent,
     ErrorPageComponent,
-    ResultsPageComponent
+    ResultsPageComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
