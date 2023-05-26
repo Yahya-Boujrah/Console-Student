@@ -15,9 +15,6 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-      this.loginService.CurrentUser$.subscribe(user => {
-        this.passwordChanged = user.isPasswordChanged;
-      })
     if(state.url == ""){ return true;}
 
     let token = sessionStorage.getItem('token');
@@ -26,12 +23,12 @@ export class AuthGuard implements CanActivate {
       return this.router.parseUrl('');
     }
     
-    console.log('outside')
-    console.log(this.passwordChanged)
-    if(this.passwordChanged === false){
-      console.log('inside if')
-      return this.router.navigate(['change-pwd']);
-    }
+    // console.log('outside')
+    // console.log(this.passwordChanged)
+    // if(this.passwordChanged === false){
+    //   console.log('inside if')
+    //   return this.router.navigate(['change-pwd']);
+    // }
     return true;
   }
 
