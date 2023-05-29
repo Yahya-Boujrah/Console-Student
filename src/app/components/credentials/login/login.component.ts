@@ -21,8 +21,8 @@ export class LoginComponent {
         this.authToken = response.token;
         sessionStorage.setItem('token', this.authToken);
         this.popup.success({detail:"Success",summary:"Logged successfully",duration:2500});
-      
-        this.router.navigate(['navigation']);
+
+        this.router.navigate(['/change-pwd']);
         }
     }, error => {
       this.popup.error({detail:"Error",summary:"Something gone wrong",duration:2500});

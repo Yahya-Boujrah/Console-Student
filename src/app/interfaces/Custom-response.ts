@@ -10,5 +10,6 @@ export interface CustomResponse {
     message: string;
     developerMessage:string;
     data: {annonces?: Annonce[] , demandes?: Demande[],
-         demande?:Demande , conventions?: Convention[] , convention?: Convention , message?: string};  
+         demande?:Demande , conventions?: Convention[] , convention?: Convention , message?: string,
+         isPasswordChanged?:Boolean};
 }

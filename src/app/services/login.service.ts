@@ -41,9 +41,16 @@ export class LoginService {
         tap(response => {
            this.user.isPasswordChanged = true;
            this.user$.next(this.user);
-          console.log
+          console.log()
         }
        ));
 
+  }
+
+
+  isPasswordChanged(){
+    return this.http.get<CustomResponse>(`${this.URL}/isPasswordChanged`).pipe(
+      tap(console.log)
+    );
   }
 }
