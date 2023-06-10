@@ -35,7 +35,7 @@ export class NavbarComponent implements OnInit{
   ngOnInit(): void {
     this.loginService.CurrentUser$.subscribe(user =>
       this.user = user,
-    
+
     );
     this.username = this.user.nom + ' ' + this.user.prenom;
   }
@@ -68,7 +68,7 @@ export class NavbarComponent implements OnInit{
   deconnexion(){
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('passwordChanged');
-    this.router.navigate(['']);
+    this.router.navigate(['login']);
   }
 
 

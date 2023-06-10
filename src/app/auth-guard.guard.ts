@@ -7,28 +7,20 @@ import { LoginService } from './services/login.service';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  passwordChanged!:Boolean;
 
-  constructor(private router : Router, private loginService : LoginService){}
+  constructor(private router : Router){}
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-
     if(state.url == ""){ return true;}
 
     let token = sessionStorage.getItem('token');
 
     if(!token){
-      return this.router.parseUrl('');
+
+      return this.router.parseUrl('login');
     }
-    
-    // console.log('outside')
-    // console.log(this.passwordChanged)
-    // if(this.passwordChanged === false){
-    //   console.log('inside if')
-    //   return this.router.navigate(['change-pwd']);
-    // }
     return true;
   }
 
