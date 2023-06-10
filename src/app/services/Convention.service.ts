@@ -13,7 +13,7 @@ const httpOptions = {
 
 @Injectable()
 export class ConventionService {
-  private readonly apiUrl = 'http://localhost:8080';  
+  private readonly apiUrl = 'https://gestion-ecole.herokuapp.com';  
 
   constructor(private http: HttpClient) {}
 
