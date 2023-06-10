@@ -14,19 +14,21 @@ import {AuthGuard} from "./auth-guard.guard";
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { ResultsPageComponent } from './components/results-page/results-page.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import {PasswordChangeGuard} from "./password-change.guard";
 
 const routes: Routes = [
   {
-    path:'' , component: CredentialsComponent, children: [
+    path:'login' , component: CredentialsComponent, children: [
       {path: '', component: LoginComponent},
       {path: 'cne-date', component: CneDateComponent}
     ]
   },
-  {
-    path:'change-pwd', component: ChangePasswordComponent,canActivate:[AuthGuard]
-  },
+
   {
     path:'' ,canActivate:[AuthGuard], children:[
+      {
+        path:'change-pwd', component: ChangePasswordComponent,canActivate:[PasswordChangeGuard]
+      },
       {
         path:'navigation', component: NavigationComponent, children : [
           {
