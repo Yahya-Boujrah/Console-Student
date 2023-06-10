@@ -12,6 +12,7 @@ const httpOptions = {
   
 @Injectable()
 export class CaseService {
+
 private readonly apiUrl = 'https://gestion-ecole.herokuapp.com';  
 
 constructor(private http: HttpClient) {}
