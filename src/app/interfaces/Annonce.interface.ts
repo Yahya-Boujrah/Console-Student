@@ -5,5 +5,6 @@ export interface Annonce {
     niveaux?: string; 
     filiere?: string;
     contenu?: string; 
+    fileUrl?: string;
 
 }

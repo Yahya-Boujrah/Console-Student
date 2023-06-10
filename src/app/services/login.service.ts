@@ -36,7 +36,7 @@ export class LoginService {
   }
 
   changePassword(password: string){
-    return this.http.put<CustomResponse>('http://localhost:8080/user/changepassword', {password : password})
+    return this.http.put<CustomResponse>('https://gestion-ecole.herokuapp.com/user/changepassword', {password : password})
       .pipe(
         tap(response => {
            this.user.isPasswordChanged = true;
