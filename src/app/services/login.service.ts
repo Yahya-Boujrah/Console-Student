@@ -16,7 +16,7 @@ export class LoginService {
   CurrentUser$ = this.user$.asObservable();
 
 
-  private readonly URL : string = 'http://localhost:8080/api/auth';
+  private readonly URL : string = 'https://gestion-ecole.herokuapp.com/api/auth';
 
   constructor(private http : HttpClient) { }
 

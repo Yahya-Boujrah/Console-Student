@@ -7,7 +7,7 @@ import { CustomResponse } from "../interfaces/Custom-response";
 
 @Injectable()
 export class AnnonceService{
-  private readonly apiUrl = 'http://localhost:8080/annonces/list';  
+  private readonly apiUrl = 'https://gestion-ecole.herokuapp.com/annonces/list';  
 
   constructor(private http: HttpClient) {}
 

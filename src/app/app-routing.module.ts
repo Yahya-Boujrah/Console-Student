@@ -55,7 +55,7 @@ const routes: Routes = [
         ]
       },
       {path: 'error', component: ErrorPageComponent},
-      // {path: '**', redirectTo:'error'}
+      {path: '**', redirectTo:'error', pathMatch: 'full'}
     ]
   },
 
