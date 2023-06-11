@@ -43,19 +43,44 @@ export class ListServiceComponent implements OnInit {
     this.myDate = data;
   }
 
-
-  onDemandAdded(demande: Demande){
-        this.demandeService.saveDemande$(demande).subscribe(response => {
-          this.dataSubject.next(
-            {...response, data: {demandes: [response.data.demande, ...this.dataSubject.value.data.demandes ]}}
-          )
-          this.demandeResponse = this.dataSubject.value;
-          this.popup.success({detail:"Success",summary:"Demand saved successfully",duration:2500});
-        }, error => {
-          this.popup.error({detail:"Error",summary:"Something gone wrong",duration:2500});
-        })
-       
+  onDemandAdded(demande: Demande) {
+    const existingDemandes = this.dataSubject.value.data.demandes;
+    console.log(existingDemandes)
+    console.log(demande)
+    const isDuplicateDemand = existingDemandes.some(d => d.type === demande.type);
+    console.log(isDuplicateDemand);
+  
+    if (isDuplicateDemand) {
+      this.popup.error({ detail: "Error", summary: "Duplicate demand", duration: 2500 });
+      return;
+    }
+  
+    this.demandeService.saveDemande$(demande).subscribe(
+      response => {
+        this.dataSubject.next({
+          ...response,
+          data: {
+            demandes: [response.data.demande, ...existingDemandes]
+          }
+        });
+  
+        this.demandeResponse = this.dataSubject.value;
+        this.popup.success({
+          detail: "Success",
+          summary: "Demand saved successfully",
+          duration: 2500
+        });
+      },
+      error => {
+        this.popup.error({
+          detail: "Error",
+          summary: "Something went wrong",
+          duration: 2500
+        });
+      }
+    );
   }
+  
 
   filterDemande(type : string){
     this.demandeService.filterDemande$(type, this.dataSubject.value).subscribe(response => {

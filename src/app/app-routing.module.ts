@@ -33,7 +33,7 @@ const routes: Routes = [
       {
         path:'navigation', component: NavigationComponent, children : [
           {
-            path:'home', component: HomeComponent
+            path:'', component: HomeComponent
           },
           {
             path: 'information' , component: InformationPageComponent

@@ -38,7 +38,7 @@ export class NavbarComponent implements OnInit{
     this.userService.getInfo().subscribe(response =>{
       this.user = response.data.user as User;
 
-      this.username = this.user.nom + ' ' + this.user.prenom;
+      //this.username = this.user.nom + ' ' + this.user.prenom;
     })
   }
 
@@ -50,7 +50,7 @@ export class NavbarComponent implements OnInit{
   }
 
   home(){
-    this.router.navigate(['home'], {relativeTo: this.route});
+    this.router.navigate(['navigation']);
 
   }
   annonce(){
