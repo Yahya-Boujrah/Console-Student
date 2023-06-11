@@ -16,7 +16,7 @@ export class UserService {
     constructor(private http: HttpClient) { }
 
     changePassword(password: string) {
-        return this.http.put<CustomResponse>(`${URL}/changepassword`, { password: password })
+        return this.http.put<CustomResponse>(`${this.URL}/changepassword`, { password: password })
             .pipe(
                 tap(response => {
                     console.log()
@@ -25,7 +25,7 @@ export class UserService {
     }
 
     getInfo() {
-        return this.http.get<CustomResponse>(`${URL}/getInfos`)
+        return this.http.get<CustomResponse>(`${this.URL}/getInfos`)
             .pipe(
                 tap(response => {
                     console.log()

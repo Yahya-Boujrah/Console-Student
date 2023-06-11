@@ -1,6 +1,6 @@
 export interface User {
     id?: number;
-    nom: string;
+    nom?: string;
     prenom: string;
     cne: string;
     cin: string;
