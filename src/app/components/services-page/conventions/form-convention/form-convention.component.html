@@ -1,12 +1,14 @@
 <div class="app-container container">
-    <span>{{conventionType}}</span>
+    <h4 class="mx-4">
+        <strong>{{conventionType}}</strong>
+    </h4>
     <form #conventionForm = "ngForm" class="form-horizontal">
         <div class="form-group form-element">
-            <label >Nom de la société</label>
+            <label >Nom de la société <span>*</span></label>
             <input type="text" ngModel name="nom" class="form-control" required>
         </div>
         <div class="form-group form-element">
-            <label >Adresse de la société</label>
+            <label >Adresse de la société <span>*</span></label>
             <input type="text" ngModel name="adresse" class="form-control" required>
         </div>
         <div class="form-group form-element">
@@ -14,19 +16,19 @@
             <input type="email" ngModel name="email" class="form-control" >
         </div>
         <div class="form-group form-element">
-            <label >Nom et prénom du représentant de la société</label>
+            <label >Nom et prénom du représentant de la société <span>*</span></label>
             <input type="text"  ngModel name="representantSociete" class="form-control" required>
         </div>
         <div class="form-group form-element">
-            <label >Sujet de stage</label>
+            <label >Sujet de stage <span>*</span></label>
             <input type="text" ngModel name="sujet" class="form-control" required>
         </div>
         <div class="form-group form-element">
-            <label >Date de début du stage</label>
+            <label >Date de début du stage <span>*</span></label>
             <input type="Date" ngModel name="dateDebut" class="form-control" placeholder="mm/dd/yyyy" required>
         </div>
         <div class="form-group form-element">
-            <label >Date de fin du stage</label>
+            <label >Date de fin du stage <span>*</span></label>
             <input type="Date" ngModel name="dateFin" class="form-control" placeholder="mm/dd/yyyy" required>
         </div>
         <div class="form-group form-element">

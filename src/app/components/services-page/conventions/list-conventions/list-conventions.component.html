@@ -14,8 +14,7 @@
                 <thead class="table-header">
                     <tr>
                         <th scope="col">Date</th>
-                        <th scope="col">Type de demande</th>
-                        <th scope="col">État</th>
+                        <th scope="col">Type de convention</th>
                         <th scope="col">Modifier</th>
                         <th scope="col">Télécharger</th>
                         <th scope="col">Supprimer</th>
@@ -23,9 +22,8 @@
                 </thead>
                 <tbody *ngFor="let conv of conventionResponse?.data?.conventions" class="table-body">
                     <tr>
-                        <td>{{conv.nomSociete}}</td>
+                        <td>{{getCurrentDate()}}</td>
                         <td>{{conv.type}}</td>
-                        <td>{{conv.sujetStage}}</td>
                         <td> <a (click)="onOpenModal(conv,'edit')"><fa-icon class="update-icon icon"
                                     [icon]="faPenToSquare"></fa-icon></a></td>
                         <td> <a (click)="downloadPDF()"><fa-icon class="download-icon icon"
@@ -34,14 +32,16 @@
                                     [icon]="faTrash"></fa-icon></a></td>
                     </tr>
 
-                    <!-- Pdf Template -->
-                    <!-- <app-convention-pdf-template id="pdf" [convention]="conv"  ></app-convention-pdf-template> -->
-
                 </tbody>
                 <tbody *ngIf="conventionResponse?.data?.conventions?.length === 0 ">
                     <tr class="aucune-demande"> Aucune demande trouvée</tr>
                 </tbody>
             </table>
+            
+        </div>
+        <!-- Pdf Template -->
+        <div id="pdf" style="display: none">
+            <app-convention-pdf-template></app-convention-pdf-template>
         </div>
 
         <!-- Update Modal -->
@@ -133,7 +133,7 @@
                                     </div>
                                 </div>
                                 <button (click)="updateConvention(conventionForm.value)"
-                                    class="btn btn-primary form-element m-3" [disabled]="conventionForm.invalid"
+                                    class="btn btn-primary form-element m-3" 
                                     data-bs-dismiss="modal">Valider et envoyer la demande</button>
                             </form>
                         </div>
@@ -177,7 +177,7 @@
                     <option value="Stage d'observation">Stage d'observation</option>
                 </select>
                 <button (click)="onAddDemand()" class="btn form-button btn-primary"
-                    [disabled]="showForm">Commencer</button>
+                   >Commencer</button>
                 <div class="msg-erreur" *ngIf="message.length !=0">{{message}}</div>
             </div>
         </div>
