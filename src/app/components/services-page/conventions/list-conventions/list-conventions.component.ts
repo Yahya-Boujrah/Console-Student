@@ -49,13 +49,29 @@ export class ListConventionsComponent implements OnInit {
       });
 
   }
+  getCurrentDate(): string {
+  const currentDate = new Date();
+  return currentDate.toDateString();
+}
+
 
   onAddDemand(): void {
     if (this.selectedValue === '') {
       this.message = "Veuillez spécifier l'objet de la demande";
+      this.showForm = false;
     } else if (this.showForm) {
       this.message = "Veuillez continuer votre demande acctuelle";
     } else {
+
+      const existingConventions = this.dataSubject.value.data.conventions;
+      const isDuplicateConvention = existingConventions.some(c =>
+        c.type === this.selectedValue
+      );
+    
+      if (isDuplicateConvention) {
+        this.popup.error({ detail: "Error", summary: "Duplicate convention", duration: 2500 });
+        return;
+      }
       this.showForm = true;
       this.message = '';
     }
@@ -86,6 +102,7 @@ export class ListConventionsComponent implements OnInit {
       )
       this.conventionResponse = this.dataSubject.value;
       this.popup.success({ detail: "Success", summary: "Convention saved successfully", duration: 2500 });
+      this.showForm = false;
     }, error => {
       this.popup.error({ detail: "Error", summary: "Something gone wrong", duration: 2500 });
     })
@@ -100,22 +117,47 @@ export class ListConventionsComponent implements OnInit {
         }
       )
       this.conventionResponse = this.dataSubject.value;
+      this.popup.success({ detail: 'Success', summary: 'Convention deleted', position: 'tr', duration: 2500 });
+
     },
       (error: HttpErrorResponse) => {
-        alert(error.message)
+        this.popup.error({ detail: 'Error', summary: 'Something gone wrong', position: 'tr', duration: 2500 });
       });
 
   }
 
   updateConvention(convention: Convention): void {
-    this.conventionService.updateConvention$(convention).subscribe(response => {
-      this.conventionResponse = response;
-    },
-      (error: HttpErrorResponse) => {
-        alert(error.message)
-      });
-
-  }
+      this.conventionService.updateConvention$(convention).subscribe(
+        response => {
+          if (response.data && response.data.convention) {
+            const updated  = response.data.convention;
+            const updatedConventions = this.dataSubject.value.data.conventions.map((c: Convention) => {
+              if (c.id === updated?.id) {
+                return { ...c, ...updated };
+              }
+              return c;
+            });
+    
+            this.dataSubject.next({
+              ...response,
+              data: {
+                ...this.dataSubject.value.data,
+                agents: updatedConventions
+              }
+            });
+    
+            this.conventionResponse = this.dataSubject.value;
+            this.popup.success({ detail: 'Success', summary: 'Convention updated', position: 'tr', duration: 2500 });
+  
+          } else {
+            console.error('Invalid response or missing convention data.');
+          }
+        },
+        error => {
+          this.popup.error({ detail: 'Error', summary: 'Something gone wrong', position: 'tr', duration: 2500 });
+        }
+      );
+    }
 
   onOpenModal(convention: Convention, mode: string) {
 
@@ -125,10 +167,6 @@ export class ListConventionsComponent implements OnInit {
     button.style.display = 'none';
     button.setAttribute('data-bs-toggle', 'modal');
 
-    // if(mode === 'add'){
-    //   button.setAttribute('data-bs-target', '#addModal');
-    //   console.log("add")
-    // }
     if(mode === 'edit'){
       this.updateConv = convention;
       button.setAttribute('data-bs-target', '#updateModal');
@@ -141,19 +179,27 @@ export class ListConventionsComponent implements OnInit {
     button.click();
   }
 
+  
   downloadPDF(): void {
     let DATA: any = document.getElementById('pdf');
+    console.log(DATA);
+      DATA.style.display = 'block';
+      DATA.style.position = 'absolute';
+      DATA.style.bottom = '-9999px'
 
+  
     html2canvas(DATA).then((canvas) => {
-      let fileWidth = 208;
+      let fileWidth = 210;
       let fileHeight = (canvas.height * fileWidth) / canvas.width;
-
+  
       const FILEURI = canvas.toDataURL('image/png');
-      let PDF = new jsPDF('p', 'mm', 'a4');
+      let PDF = new jsPDF({ format: 'a4' });
       let position = 0;
       PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight);
-
+  
       PDF.save('Convention.pdf');
+      DATA.style.display = 'none';
     });
   }
+  
 }

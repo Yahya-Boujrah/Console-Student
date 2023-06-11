@@ -8,3 +8,7 @@ button{
     background-color: #405189;
     border-color: #3da5f4;
 }
+span{
+    color: red;
+    font-weight: bold;
+}
