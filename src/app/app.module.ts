@@ -29,6 +29,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { ResultsPageComponent } from './components/results-page/results-page.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
     FooterComponent,
     ErrorPageComponent,
     ResultsPageComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

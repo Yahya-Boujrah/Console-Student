@@ -15,6 +15,7 @@ import { ErrorPageComponent } from './components/error-page/error-page.component
 import { ResultsPageComponent } from './components/results-page/results-page.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import {PasswordChangeGuard} from "./password-change.guard";
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,9 @@ const routes: Routes = [
       },
       {
         path:'navigation', component: NavigationComponent, children : [
+          {
+            path:'home', component: HomeComponent
+          },
           {
             path: 'information' , component: InformationPageComponent
           },

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faIdCard, faAddressBook, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { User } from 'src/app/interfaces/User.interface';
-import { LoginService } from 'src/app/services/login.service';
+import { UserService } from 'src/app/services/User.service';
 
 
 @Component({
@@ -17,12 +17,12 @@ export class InformationPageComponent implements OnInit {
 
   user !:User;
 
-  constructor(private loginService: LoginService){}
+  constructor(private userService: UserService){}
 
   ngOnInit(): void {
-    this.loginService.CurrentUser$.subscribe(user =>
-      this.user = user
-    );
+    this.userService.getInfo().subscribe(response =>{
+      this.user = response.data.user as User;
+    })
   }
 
 }

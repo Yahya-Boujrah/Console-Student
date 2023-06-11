@@ -3,6 +3,7 @@ import { faHouse, faUserGroup, faScroll, faNoteSticky , faCaretDown, faUser , fa
 import {ActivatedRoute, Router} from "@angular/router";
 import { User } from 'src/app/interfaces/User.interface';
 import { LoginService } from 'src/app/services/login.service';
+import { UserService } from 'src/app/services/User.service';
 
 @Component({
   selector: 'app-navbar',
@@ -29,15 +30,16 @@ export class NavbarComponent implements OnInit{
   user !:User;
 
 
-  constructor(private route:ActivatedRoute, private router:Router, private loginService: LoginService) {
+  constructor(private route:ActivatedRoute, private router:Router, private userService:UserService ) {
   }
 
   ngOnInit(): void {
-    this.loginService.CurrentUser$.subscribe(user =>
-      this.user = user,
+   
+    this.userService.getInfo().subscribe(response =>{
+      this.user = response.data.user as User;
 
-    );
-    this.username = this.user.nom + ' ' + this.user.prenom;
+      this.username = this.user.nom + ' ' + this.user.prenom;
+    })
   }
 
   onMouseEnter(){
@@ -47,6 +49,10 @@ export class NavbarComponent implements OnInit{
     this.classToggled = !this.classToggled;
   }
 
+  home(){
+    this.router.navigate(['home'], {relativeTo: this.route});
+
+  }
   annonce(){
     this.router.navigate(['annonces'], {relativeTo: this.route});
   }

@@ -10,11 +10,7 @@ import { CustomResponse } from '../interfaces/Custom-response';
 })
 export class LoginService {
 
-
   user!: User;
-  private user$ = new BehaviorSubject<any>(null);
-  CurrentUser$ = this.user$.asObservable();
-
 
   private readonly URL : string = 'https://gestion-ecole.herokuapp.com/api/auth';
 
@@ -24,7 +20,6 @@ export class LoginService {
     return this.http.post<AuthResponse>(`${this.URL}/authenticate`, { email : email, password : password})
       .pipe(tap(response =>{
         this.user  = response.user;
-        this.user$.next(this.user);
       }));
   }
 
@@ -34,19 +29,6 @@ export class LoginService {
         tap(
         console.log));
   }
-
-  changePassword(password: string){
-    return this.http.put<CustomResponse>('https://gestion-ecole.herokuapp.com/user/changepassword', {password : password})
-      .pipe(
-        tap(response => {
-           this.user.isPasswordChanged = true;
-           this.user$.next(this.user);
-          console.log()
-        }
-       ));
-
-  }
-
 
   isPasswordChanged(){
     return this.http.get<CustomResponse>(`${this.URL}/isPasswordChanged`).pipe(

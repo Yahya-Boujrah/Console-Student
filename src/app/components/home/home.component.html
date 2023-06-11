@@ -1,0 +1,53 @@
+<body>
+    <div class="container app-container">
+      <h2 class="page-title">
+        <fa-icon  class="title-icon" [icon]="faNewspaper"></fa-icon>
+        Accueil 
+      </h2>
+      <hr>
+      <div class="row row-cols-7">
+        <div class="col"> 
+            <h3 class="sidekick">Bonjour <strong>{{username}}</strong> dans Votre espace étudiant </h3><br>
+            <h4 class="sidekick">Cet espace vous permet de vérifier et rectifier vos informations personnelles, consulter les avis ciblés, demander (et suivre l'état) des documents auprès de l'administration, consulter vos notes et résultats, demander des conventions de stages, consulter vos emplois du temps actualisés.</h4>
+        </div>
+      </div>
+      <hr>
+      <div class="row ">
+            <div class="col-md-4 col-sm-6 content-card">
+                <div class="card-big-shadow">
+                    <div class="card card-just-text" data-background="color" data-color="blue" data-radius="none">
+                            <a routerLink="/annonce" routerLinkActive="router-link-active">
+                                <div class="content">
+                                <h6 class="category">Vous pouvez consulter les dernières annonces par cette carte.</h6><br>
+                            </div>
+                            </a>
+                    </div> <!-- end card -->
+                </div>
+            </div>
+            
+            <div class="col-md-4 col-sm-6 content-card">
+                <div class="card-big-shadow">
+                    <div class="card card-just-text" data-background="color" data-color="blue" data-radius="none">
+                        <a routerLink="/ser" routerLinkActive="router-link-active">
+                            <div class="content">
+                                <h6 class="category">Vous pouvez consulter la page de votre résultat par cette carte.</h6><br>
+                            </div>
+                        </a>
+                    </div> <!-- end card -->
+                </div>
+            </div>
+            
+            <div class="col-md-4 col-sm-6 content-card">
+                <div class="card-big-shadow">
+                    <div class="card card-just-text" data-background="color" data-color="blue" data-radius="none">
+                        <a routerLink="/demande-service" routerLinkActive="router-link-active">
+                            <div class="content">
+                                <h6 class="category">Vous pouver réviser et passer vos demandes  par cette carte.</h6><br>
+                            </div>
+                        </a>
+                    </div> <!-- end card -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
