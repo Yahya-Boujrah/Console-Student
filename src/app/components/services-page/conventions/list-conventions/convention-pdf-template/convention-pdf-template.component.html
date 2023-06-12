@@ -1,41 +1,269 @@
-<h3>Convention de stage</h3>
+<div class="container" style="padding: 2rem; margin:2rem;">
 
-Entre les soussignés :
-Nom de l'entreprise, représentée par (préciser)
-Adresse de l'entreprise,
-Ci-dessous désignée « l'entreprise »
-Et,
+    <h2 style="text-align: center">{{convention.type}}</h2>
 
-Mme/M. (préciser Nom Prénom du stagiaire), né(e) le (date), demeurant au (adresse complète) et immatriculé à la Sécurité sociale sous le numéro (indiquer le numéro de Sécurité sociale du stagiaire),
-Ci-dessous désigné(e) « le stagiaire »
-Et,
+    <div>
+        <p>
+            ENTRE
+            <br>
+            L'établissement supérieur ENSA Marrakech
+            représenté par Professeur Boujemaa AGORRAM, en qualité de .....................................
+            Adresse : Bd Abdelkrim El Khattabi,BP 575, Marrakech, Maroc
+            Courriel : .........................................................
+            Téléphone : .......................................................
+        </p>
 
-Nom de l'établissement d'enseignement de rattachement
-Adresse complète de l'établissement
-Représenté par (préciser),
-Ci-dessous désigné « l'établissement d'enseignement »
+        <p>
+            ET
+            <br>
+            L'organisme d'accueil : {{convention.nomSociete}}
+            Adresse : n° {{convention.adresseSociete}}
+            Représenté(e) par : {{convention.NomRepresentantSociete}}
+            Qualité ou fonction exercée : ............................
+            Courriel : .........................................................
+            Téléphone : .......................................................
 
-Il a été convenu ce qui suit.
+        </p>
+        <p>
+            ET
+            <br>
 
-Article I. Projet et missions
-Le stage encadré par cette présente convention s'inscrit dans un projet pédagogique, personnel et professionnel visant à permettre au stagiaire de se préparer au mieux à l'entrée dans la vie active. Dans ce contexte, le stagiaire sera amené à mettre en pratique les compétences théoriques et pratiques acquises au sein de l'établissement d'enseignement, et aura pour principales missions (lister les missions attribuées au stagiaire).
+            L'étudiant stagiaire : ........................................
+            Nom : .............................................................
+            Prénom : .......................................................
+            Adresse : ....................................................
+            Courriel : .........................................................
+            Téléphone : .......................................................
+            Date de naissance : / /
+            N° Sécurité Sociale : .........................................
+            Formation suivie : .............................................
+            N° de carte d'étudiant : .....................................
+            Compagnie d'assurance (responsabilité civile) : N° de contrat :
+            ................................................
+        </p>
+        <p>
+            Si le stagiaire est mineur, la convention de stage doit être signée par son représentant légal.
+        </p>
+    </div>
 
-Article II. Durée et horaires
-Le stagiaire est invité à réaliser ses missions à compter du (date) et pour une durée de (préciser). La convention de stage prendra donc fin au (date). Durant toute cette période, le stagiaire devra être présent dans l'entreprise (préciser le nombre d'heures par semaine et les horaires).
+    <div>
+        <h4>Article 1 : OBJET DE LA CONVENTION</h4>
+        <p>
+            L'organisme d'accueil mentionné ci-dessus accepte d'accueillir en stage, dans les conditions définies
+            ci-après,
+            un(e) étudiant(e). La finalité et les modalités du stage sont définies dans le présent document.
+        </p>
+    </div>
 
-Article III. Modalités d'encadrement
-Durant toute la durée de son stage, le stagiaire sera encadré par (préciser les informations sur le maître de stage et sur le tuteur du stage).
+    <div>
+        <h4>Article 2 : VERSEMENT D'UNE GRATIFICATION</h4>
+        <p>
+            Au sein d'une même entreprise, lorsque la durée du stage est supérieure à deux mois, consécutifs ou non, au
+            cours
+            d'une même année scolaire ou universitaire, une gratification est due au stagiaire. Le montant de la
+            gratification
+            est fixé par convention de branche ou accord professionnel étendu, par la réglementation en vigueur. Cette
+            gratification n'a pas le caractère d'un salaire au sens de l'article L.3221-3 du code du travail.
+        </p>
+    </div>
 
-Article IV. Gratification et avantages
-Durant toute la durée de son stage, le stagiaire percevra une gratification mensuelle d'un montant de (indiquer le montant en euros en chiffres et en lettres), la durée de son stage étant supérieure à deux mois, conformément à l'article L612-11 du Code de l'éducation.
-Le stagiaire bénéficiera par ailleurs des prestations suivantes (préciser : repas, hébergement, etc.).
+    <div>
+        <h4>Article 3 : CONDITIONS DU STAGE</h4>
+        <p>
+            Outre les clauses générales figurant à la présente convention et que les parties, par leur signature
+            ci-dessous,
+            acceptent sans restriction, les conditions particulières de déroulement du stage sont les suivantes :
+        </p>
+        <div>
 
-Article VI. Protection sociale et assurance
-Le stagiaire conserve durant toute la durée de son stage la protection sociale à laquelle il est affilié, ainsi que son statut d'étudiant. Il bénéficie par ailleurs de la législation sur les accidents du travail. Le stagiaire est invité à souscrire une assurance responsabilité civile et à en fournir une attestation à l'entreprise.
+            <h5>Encadrement : les responsables du stage</h5>
+            Au sein de l'organisme d'accueil : {{convention.nomSociete}}
+            Nom et Prenom: {{convention.nomEncadrantSociete}}
+            Courriel : ..........................................
+            Téléphone : ..........................................
+        </div>
+        <div>
+            <h5>Au sein de l'établissement d'enseignement supérieur : </h5>
+            Nom et Prenom: {{convention.nomEncadrantEcole}}
+            Courriel : .................................................
+            Téléphone : .............................................
+        </div>
 
-Article VII. Règlement intérieur
-Pendant toute la durée du stage, le stagiaire s'engage à respecter le règlement intérieur de l'entreprise et à s'astreindre à un devoir de réserve et de confidentialité. L'entreprise se réserve le droit de mettre fin au stage en cas de manquement disciplinaire grave.
+        <div>
+            <h5>Nature du stage :</h5>
+            Sujet du stage : {{convention.sujetStage}}
+            Compétences à acquérir/à développer : .....................................
+            Activités confiées au stagiaire : .....................................
+            Objectifs pédagogiques : .......................................
+            Le stage se déroulera du {{convention.dateDebutStage}} au {{convention.dateFinStage}}.
 
-Fait en trois exemplaires le (date) à (lieu),
+        </div>
+        <div>
+            <h5>Modalités du stage : </h5>
+            <p>
+                Temps complet
+                Temps partiel
+                Alternance
+                Volume horaire hebdomadaire : ....... heures/semaine (un calendrier détaillé pourra éventuellement être
+                joint en
+                annexe)
+                Adresse précise du lieu de déroulement du stage :
+                n° ..................................
+                Ville : ...........................
+                Code postal : ..............................
 
-Signature des trois parties précédée de la mention « Lu et approuvé ».
+                Aménagements particuliers (présence requise la nuit, jours fériés, dimanche, horaires décalés, etc.).
+
+                Critères d'évaluation du stage : ....................................
+            </p>
+        </div>
+        <div>
+            <h5>Gratification :</h5>
+            <p>
+                Montant de la gratification : {{convention.montantGratification}} Dh mensuels.
+            </p>
+
+        </div>
+    </div>
+
+    <div>
+        <h3>Article 4 : STATUT DU STAGIAIRE </h3>
+        <p>
+            L'étudiant(e), pendant la durée de son stage dans l'organisme d'accueil demeure étudiant(e) de
+            l'établissement.
+
+            Durant son stage, l'étudiant(e) est soumis(e) à la discipline et au règlement intérieur de l'organisme
+            d'accueil,
+            notamment en ce qui concerne les horaires, et les règles d'hygiène et de sécurité en vigueur.
+
+            En cas de manquement, le responsable de l'organisme d'accueil peut mettre fin au stage de l'étudiant(e),
+            après avoir
+            prévenu le responsable du stage de l'établissement.
+
+            Toute modification de date entraînera la rédaction d'un avenant à la convention en cours. Toute absence,
+            notamment
+            dans le cadre d'obligations attestées par l'établissement d'enseignement, sera justifiée par le responsable
+            de
+            formation.
+        </p>
+    </div>
+
+    <div>
+        <h3>Article 5 : PROTECTION SOCIALE </h3>
+        <p>
+            Pendant la durée de son stage, le stagiaire continue à bénéficier du régime de sécurité sociale auquel il
+            est
+            affilié (assurance maladie, maternité et éventuellement prestations familiales) : il (elle) conserve son
+            statut
+            étudiant.
+
+            Les stages effectués à l'étranger doivent avoir été signalés préalablement au départ de l'étudiant(e) et
+            avoir reçu
+            l'agrément de la Sécurité Sociale. Les dispositions suivantes sont applicables sous réserve de conformité
+            avec la
+            législation du pays d'accueil et de celle régissant le type d'organisme d'accueil :
+
+            5.1 Lorsque la gratification est inférieure ou égale au montant obligatoire fixé par la réglementation en
+            vigueur,
+            les sommes versées ne sont pas soumises à cotisation sociale. L'étudiant(e) continue à bénéficier de la
+            législation
+            sur les accidents de travail au titre de l'article L 412-8-2 du Code de la sécurité sociale, régime étudiant
+            ;
+            5.2 Au-delà du plafond, les sommes versées prennent le caractère d'une rémunération, et les cotisations
+            sociales
+            sont alors perçues sur le différentiel entre le montant de la gratification et le montant obligatoire.
+            L'étudiant(e)
+            bénéficie de la couverture légale en application des dispositions des articles L 411-1 et suivants du Code
+            de la
+            sécurité sociale. En cas d'accident survenant à l'étudiant(e), soit au cours des travaux dans l'organisme,
+            soit au
+            cours du trajet, soit sur des lieux rendus utiles pour les besoins de son stage, l'organisme d'accueil
+            effectue
+            toutes les démarches nécessaires auprès de la Caisse Primaire d'Assurance Maladie et informe l'établissement
+            dans
+            les meilleurs délais. Dans tous les cas, en cas d'accident survenu à l'étudiant(e), soit au cours de son
+            travail,
+            soit au cours du trajet, le responsable de l'organisme d'accueil s'engage à lui fournir les feuilles
+            d'accident
+            octroyant la gratuité des soins.
+        </p>
+    </div>
+
+    <div>
+        <h3>Article 6 : RESPONSABILITE CIVILE ET ASSURANCES </h3>
+        <p>
+            L'étudiant(e) doit contracter une assurance garantissant sa responsabilité civile dans le cadre de stages
+            effectués
+            au cours de ses études et en fournit une attestation.
+        </p>
+    </div>
+    <div>
+        <h3>Article 7 : FIN DE STAGE : RAPPORT-EVALUATION</h3>
+        <p>
+            L'étudiant(e) est tenu(e), à la fin du stage, de rédiger un rapport qu'il doit soumettre au chef de service
+            de
+            l'organisme d'accueil avant d'en remettre un exemplaire à l'Université.
+
+            En cas de soutenance, le tuteur ou son représentant pourra être convié à y participer.
+
+            Le chef d'entreprise délivre à l'intéressé une attestation de stage.
+        </p>
+    </div>
+    <div>
+        <h3>Article 8 : DEVOIR DE RESERVE ET CONFIDENTIALITE </h3>
+        <p>
+            L'étudiant(e) s'engage à ne divulguer, en aucun cas, les informations confidentielles qu'il pourrait
+            recueillir à
+            l'occasion de ses travaux lors de sa présence dans l'organisme d'accueil.
+
+            Les éventuels rapports, communications ou publications ne pourront être diffusées sans l'accord préalable de
+            l'organisme d'accueil.
+
+            Il est rappelé que l'étudiant(e) n'étant pas salarié de l'Université et conformément à la législation en
+            vigueur,
+            les droits de propriété intellectuelle découlant de la réalisation de son stage lui appartiennent.
+
+            L'organisme d'accueil fera par conséquent son affaire des modalités éventuelles de cession et d'exploitation
+            des
+            droits de l'étudiant(e).
+        </p>
+    </div>
+    <div>
+        <h3>Article 9 : ABSENCE ET INTERRUPTION DU STAGE</h3>
+        <p>
+            Au cours du stage, le stagiaire pourra bénéficier de congés sous réserve que la durée minimale du stage soit
+            respectée.
+
+            Pour toute autre interruption temporaire du stage (maladie, maternité, absence injustifiée...), l'organisme
+            d'accueil avertira le responsable de l'établissement par courrier.
+            En cas d'interruption du stage pour un motif lié à la maladie, accident, grossesse, paternité, adoption, en
+            cas de
+            non-respect des stipulations pédagogiques de la convention ou encore en cas de rupture de la convention à
+            l'initiative de l'organisme d'accueil, l'établissement supérieur valide le stage, même s'il n'a pas atteint
+            la durée
+            prévue dans le cursus, ou bien propose au stagiaire une modalité alternative de validation de sa formation.
+
+            En cas de volonté de l'une des trois parties à la présente convention d'interrompre définitivement le stage,
+            celui-ci devra immédiatement en informer les deux autres parties par écrit.
+
+            Les raisons invoquées seront examinées en étroite concertation au terme de laquelle la décision définitive
+            d'interruption du stage pourra être prise.
+        </p>
+    </div>
+    <div>
+        Cachets et signatures :
+
+        Fait à {{dateNow()}} , en trois exemplaires,
+        <p>
+            Le responsable de l'organisme d'accueil : .............................
+            <br>
+            Tuteur académique de l'établissement : .............................
+            <br>
+            L'étudiant(e) : .............................
+            <br>
+            Le Président de l'établissement : .............................
+            <br>
+            Tuteur de stage dans l'organisme d'accueil : ..............................
+        </p>
+    </div>
+</div>

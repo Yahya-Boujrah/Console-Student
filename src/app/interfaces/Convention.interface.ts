@@ -14,5 +14,5 @@ export interface Convention {
     numeroContrantAssurance ?: string;
     montantGratification ?: number;
     modalitePaiementGratification ?: string;
-
+    
 }
