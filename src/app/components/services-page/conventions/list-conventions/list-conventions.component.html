@@ -32,17 +32,18 @@
                                     [icon]="faTrash"></fa-icon></a></td>
                     </tr>
 
+                    <!-- Pdf Template -->
+                    <div id="pdf" style="display: none">
+                        <app-convention-pdf-template [convention]="conv"></app-convention-pdf-template>
+                    </div>
                 </tbody>
                 <tbody *ngIf="conventionResponse?.data?.conventions?.length === 0 ">
                     <tr class="aucune-demande"> Aucune demande trouvée</tr>
                 </tbody>
             </table>
-            
+
         </div>
-        <!-- Pdf Template -->
-        <div id="pdf" style="display: none">
-            <app-convention-pdf-template></app-convention-pdf-template>
-        </div>
+
 
         <!-- Update Modal -->
         <div class="modal fade" id="updateModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -57,9 +58,9 @@
                         <div class="container">
                             <form #conventionForm="ngForm" class="form-horizontal">
                                 <div class="col form-group form-element d-none">
-                                        <input type="text" ngModel="{{updateConv?.id}}" name="id"
-                                            class="form-control" required>
-                                    </div>
+                                    <input type="text" ngModel="{{updateConv?.id}}" name="id" class="form-control"
+                                        required>
+                                </div>
                                 <div class="row">
                                     <div class="col form-group form-element">
                                         <label>Nom de la société</label>
@@ -133,8 +134,8 @@
                                     </div>
                                 </div>
                                 <button (click)="updateConvention(conventionForm.value)"
-                                    class="btn btn-primary form-element m-3" 
-                                    data-bs-dismiss="modal">Valider et envoyer la demande</button>
+                                    class="btn btn-primary form-element m-3" data-bs-dismiss="modal">Valider et envoyer
+                                    la demande</button>
                             </form>
                         </div>
                     </div>
@@ -176,8 +177,7 @@
                     <option value="Projet de fin de semestre (PFS)">Projet de fin de semestre (PFS)</option>
                     <option value="Stage d'observation">Stage d'observation</option>
                 </select>
-                <button (click)="onAddDemand()" class="btn form-button btn-primary"
-                   >Commencer</button>
+                <button (click)="onAddDemand()" class="btn form-button btn-primary">Commencer</button>
                 <div class="msg-erreur" *ngIf="message.length !=0">{{message}}</div>
             </div>
         </div>

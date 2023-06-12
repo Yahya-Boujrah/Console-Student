@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-error-page',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class ErrorPageComponent {
 
+
+  constructor(private router: Router, private route: ActivatedRoute){}
+
+  home(){
+    this.router.navigate(['navigation'] )
+  }
 }

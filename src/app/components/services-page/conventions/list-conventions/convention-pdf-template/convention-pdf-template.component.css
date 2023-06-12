@@ -1,0 +1,13 @@
+.conv-container {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+p{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+h4,h3,h2, h5{
+    font-weight:bold;
+    padding: 1.5rem;
+}

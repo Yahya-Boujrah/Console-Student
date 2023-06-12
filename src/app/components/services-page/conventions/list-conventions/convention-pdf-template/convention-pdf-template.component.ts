@@ -7,6 +7,10 @@ import { Convention } from '../../../../../interfaces/Convention.interface';
   styleUrls: ['./convention-pdf-template.component.css']
 })
 export class ConventionPdfTemplateComponent {
-  @Input() convention!: Convention; ;
+  @Input() convention!: Convention; 
+
+  dateNow(){
+    return new Date();
+  }
 
 }
